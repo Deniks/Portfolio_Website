@@ -11,7 +11,7 @@ export function Navbar() {
         <Sidebar round="small" >
             <Nav gap="small">
                 <Link to="/">
-                    <Button icon={<Home />} hoverIndicator />
+                    <Button icon={<Home />} />
                 </Link>
                 <Link to="/projects">
                     <Button icon={<Projects />} hoverIndicator />

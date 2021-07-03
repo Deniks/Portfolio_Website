@@ -1,9 +1,11 @@
 import React from 'react'
 
+import InteractiveBackground from '../../Components/InteractiveBackground';
+
 export function HomePage() {
     return (
         <div>
-            HomePage
+            <InteractiveBackground />
         </div>
     )
 }

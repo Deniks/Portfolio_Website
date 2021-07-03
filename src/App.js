@@ -7,6 +7,7 @@ import {
   Box,
   Grommet,
   ResponsiveContext,
+  Grid
 } from 'grommet';
 
 
@@ -19,6 +20,7 @@ import ErrorPage from './Pages/ErrorPage';
 import Hero from './Components/Hero';
 import Navbar from './Components/Navbar';
 import InteractiveBackground from './Components/InteractiveBackground';
+import Header from './Components/Header';
 
 const theme = {
   global: {
@@ -39,19 +41,32 @@ const App = () => {
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
         {size => (
-          <Box fill>
-            <InteractiveBackground />
-            <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+          <Grid
+            style={{maxHeight: "100vh"}}
+            rows={['auto', 'auto']}
+            columns={['auto', 'auto']}
+            gap="small"
+            areas={[
+              { name: 'header', start: [0, 0], end: [1, 0] },
+              { name: 'sidebar', start: [0, 1], end: [0, 1] },
+              { name: 'main', start: [1, 1], end: [1, 1] },
+            ]}
+          >
+            <Box gridArea="header">
+              <Header />
+            </Box>
+            
+            <Box gridArea="sidebar">
               <Navbar />
-              <Box flex align='center' justify='center'>
+            </Box>
+            <Box gridArea="main">
                   <Switch>
                     <Route path="/" component={HomePage} exact />
                     <Route path="/contacts" component={ContactsPage} />
                     <Route component={ErrorPage} />
                   </Switch>
-                </Box>
             </Box>
-          </Box>
+          </Grid>
         )}
       </ResponsiveContext.Consumer>
     </Grommet>

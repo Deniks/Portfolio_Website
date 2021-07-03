@@ -1,33 +1,23 @@
 import React, { useState, useRef, Suspense } from 'react'
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, OrbitControls, Sky, useFBX } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { PerspectiveCamera, OrbitControls, Environment } from "@react-three/drei";
 
-import BoxMesh from "../BoxMesh";
-
-const style = {
-    position: "absolute",
-    width: "100vw",
-    height: "100vh",
-
-};
+import Model1 from '../FBX/Model1';
+import Model2 from '../FBX/Model2';
 
 
 export function InteractiveBackground() {
-
-    const model1 = useFBX('/3d-logo.fbx');
+    const myCamera = useRef();
 
     return (
-        <div style={style}>
+        <div style={{height: "600px"}}>
         <Canvas>
-        <Suspense fallback={null}>
-                    <Sky layers={[11]} sunPosition={[Math.PI, 0, Math.PI / 2]} turbidity={8} rayleigh={6} mieCoefficient={0.0005} mieDirectionalG={0.8} />
-                    <primitive object={model1} disp/>
-                    <BoxMesh position={[-3, 0, 0]} />
-                    <BoxMesh position={[3, 0, 0]} />
-
-                    <OrbitControls />
-                    <ambientLight />
+                <Suspense fallback={null}>
+                    <PerspectiveCamera makeDefault   >
+                        <Model2 />
+                    </PerspectiveCamera>
+                    <Environment preset="forest" background={false} />
         </Suspense>
       </Canvas>
         </div>
