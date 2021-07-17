@@ -3,13 +3,7 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // UI
-import {
-  Box,
-  Grommet,
-  ResponsiveContext,
-  Grid
-} from 'grommet';
-
+import { Box, Grommet, ResponsiveContext, Grid } from 'grommet';
 
 // Pages
 import HomePage from './Pages/HomePage';
@@ -21,6 +15,7 @@ import Hero from './Components/Hero';
 import Navbar from './Components/Navbar';
 import InteractiveBackground from './Components/InteractiveBackground';
 import Header from './Components/Header';
+import EpicBackground from './Components/EpicBackground';
 
 const theme = {
   global: {
@@ -35,36 +30,34 @@ const theme = {
   },
 };
 
-
 const App = () => {
   return (
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
-        {size => (
+        {(size) => (
           <Grid
-            style={{maxHeight: "100vh"}}
+            style={{ maxHeight: '100vh' }}
             rows={['auto', 'auto']}
-            columns={['auto', 'auto']}
+            columns={['small', 'auto']}
             gap="small"
             areas={[
               { name: 'header', start: [0, 0], end: [1, 0] },
-              { name: 'sidebar', start: [0, 1], end: [0, 1] },
               { name: 'main', start: [1, 1], end: [1, 1] },
             ]}
           >
             <Box gridArea="header">
               <Header />
             </Box>
-            
-            <Box gridArea="sidebar">
-              <Navbar />
-            </Box>
             <Box gridArea="main">
-                  <Switch>
-                    <Route path="/" component={HomePage} exact />
-                    <Route path="/contacts" component={ContactsPage} />
-                    <Route component={ErrorPage} />
-                  </Switch>
+              <Switch>
+                <Route path="/" component={HomePage} exact />
+                <Route path="/contacts" component={ContactsPage} />
+                <Route component={ErrorPage} />
+              </Switch>
+            </Box>
+
+            <Box fill style={{ position: 'absolute', zIndex: -1 }}>
+              <EpicBackground />
             </Box>
           </Grid>
         )}

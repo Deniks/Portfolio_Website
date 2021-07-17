@@ -4,13 +4,12 @@ import { useGLTF } from '@react-three/drei';
 
 export function Model1(props) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/denix_logo.gltf')
+  const { nodes, materials } = useGLTF('/shape01.gltf')
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh geometry={nodes.Plane.geometry} material={materials['CW-Plastic- matte']} position={[0, 0.01, 0]} />
-      <mesh geometry={nodes.Text.geometry} material={materials['CP-Ferrari Red']} position={[-0.6, 0.19, 0]} />
+      <mesh geometry={nodes.Text003.geometry} material={materials['CP-Ferrari Red']} position={[0,0,25]} />
     </group>
   )
 }
 
-useGLTF.preload('/denix_logo.gltf')
+useGLTF.preload('/shape01.gltf')
