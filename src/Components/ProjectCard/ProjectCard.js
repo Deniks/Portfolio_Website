@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import {
   Image,
@@ -13,6 +13,7 @@ import {
   Spinner,
   Button,
   Heading,
+  ResponsiveContext,
 } from 'grommet';
 
 import { useSpring, animated } from 'react-spring';
@@ -31,7 +32,8 @@ export function ProjectCard({
   expanded,
   setExpansion,
 }) {
-  const isExpanded = true; //id === expanded.id && expanded.active;
+  const viewportSize = useContext(ResponsiveContext);
+  const isExpanded = false; //id === expanded.id && expanded.active;
   const styles = useSpring({
     width: isExpanded ? '100%' : '300px',
     height: isExpanded ? '100%' : '400px',
@@ -42,7 +44,9 @@ export function ProjectCard({
   };
 
   return stack ? (
-    <StyledCard style={styles}>
+    <StyledCard size={viewportSize}>
+      {' '}
+      {/* style={styles} for StlyedCard, removed to setup responsiveness in styled-compinenst */}
       <Grid
         rows={['auto', 'auto']}
         columns={['auto', 'auto']}
@@ -78,7 +82,13 @@ export function ProjectCard({
           </Box>
           <Box gridArea="links">
             {links.map((link, i) => (
-              <a href={link} target="_blank" rel="noopener noreferrer" key={i}>
+              <a
+                style={{ color: 'inherit' }}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={i}
+              >
                 {link}
               </a>
             ))}

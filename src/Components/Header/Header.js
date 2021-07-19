@@ -1,17 +1,24 @@
-import React from 'react'
+import React from 'react';
 
-import { Header as GrommetHeader, Anchor, Nav } from "grommet";
+import { Link } from 'react-router-dom';
 
-import { Github, Linkedin } from "grommet-icons";
+import { Header as GrommetHeader, Anchor, Nav, Heading, Box } from 'grommet';
+
+import { Github, Linkedin } from 'grommet-icons';
 
 export function Header() {
-    return (
-        <GrommetHeader gap="medium" justify="end">
-            <Nav direction="row" pad="small" gap="xsmall">
-                <Anchor icon={<Github />} hoverIndicator />
-                <Anchor icon={<Linkedin/>} />
-            </Nav>
+  return (
+    <GrommetHeader gap="medium">
+      <Box pad="xsmall" style={{ marginLeft: '15px' }}>
+        <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+          <Heading level="4">Deniss Rezanovics</Heading>
+        </Link>
+      </Box>
 
-        </GrommetHeader>
-    )
+      <Nav direction="row" pad="small" gap="xsmall">
+        <Anchor icon={<Github />} hoverIndicator />
+        <Anchor icon={<Linkedin />} />
+      </Nav>
+    </GrommetHeader>
+  );
 }
