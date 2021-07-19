@@ -4,6 +4,7 @@ import { Box, Heading, Image, Grid } from 'grommet';
 import ProjectCard from '../../Components/ProjectCard';
 import img from '../../Assets/logo.png';
 import { PrepareDescription } from '../../Components/ProjectCard/PrepareDescription';
+import DebitAnimation from '../../Components/DebitAnimation';
 const projectsData = [
   {
     name: 'Landing',
@@ -20,50 +21,50 @@ const projectsData = [
   //   name: 'E-commerce',
   //   description: '',
   //   stack: ['Node.js', 'Css Grid', 'Express'],
-  //   image: img,
+  //   image: null,
   // },
   // {
   //   name: 'BMI Calculator',
   //   description: '',
   //   stack: ['Node.js', 'Css Grid', 'Express'],
-  //   image: img,
+  //   image: null,
   // },
   // {
   //   name: 'Music Suggester',
   //   description: '',
   //   stack: ['Node.js', 'Css Grid', 'Express'],
-  //   image: img,
+  //   image: null,
   // },
   // {
   //   name: 'Real Estate',
   //   description: '',
   //   stack: ['Node.js', 'Css Grid', 'Express'],
-  //   image: img,
+  //   image: null,
   // },
   // {
   //   name: 'Reflectively.log',
   //   description: '',
   //   stack: ['Node.js', 'Css Grid', 'Express'],
-  //   image: img,
+  //   image: null,
   // },
 ];
 export function ProjectsPage() {
+  const minimalAnimationDelay = 150;
   return (
     <div>
       <Box fill>
-        <Grid
-          style={{ maxHeight: '100vh', height: '100vh' }}
-          rows={['auto', 'auto']}
-          columns={['auto', 'auto']}
-          gap="small"
-        >
-          {projectsData.map(({ name, image, description, stack, links }) => (
+        <DebitAnimation delay={minimalAnimationDelay}>
+          <Heading>Projects</Heading>
+        </DebitAnimation>
+        <Grid rows={['auto', 'auto']} columns={['auto', 'auto']} gap="small">
+          {projectsData.map(({ name, image, description, stack, links }, i) => (
             <ProjectCard
               title={name}
               image={image}
               description={description}
               stack={stack}
               links={links}
+              key={i}
             />
           ))}
         </Grid>

@@ -10,7 +10,7 @@ export function Footer() {
         <Text color="#a9a9a9">+371 27739868</Text>
       </Box>
       <Text style={{ fontSize: '10pt' }} color="#8f9aa7">
-        © Deniss Rez. All Rights Reserved.
+        © 2021 Deniss Rezanovics made in Latvia
       </Text>
     </Box>
   );

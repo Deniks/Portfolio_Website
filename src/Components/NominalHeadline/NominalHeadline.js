@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Box, Heading } from 'grommet';
 import VPButton from '../VPButton';
-import DebitAnimation from '../DebitAnimation/DebitAnimation';
+import DebitAnimation from '../DebitAnimation';
 
 export default function NominalHeadline() {
   return (

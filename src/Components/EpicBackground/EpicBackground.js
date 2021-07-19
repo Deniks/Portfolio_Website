@@ -6,7 +6,7 @@ import Effects from './Effects';
 import Sparks from './Sparks';
 import Particles from './Particles';
 import { Box } from 'grommet';
-
+import { useControls } from 'leva';
 import './styles.css';
 import Model1 from '../FBX/Model1';
 import Model2 from '../FBX/Model2';
@@ -73,6 +73,14 @@ function Number({ hover }) {
 }
 
 export function EpicBackground() {
+  const { pointLightX, pointLightY, pointLightZ, pointLightIntentsity } =
+    useControls({
+      pointLightX: 10,
+      pointLightY: 100,
+      pointLightZ: 100,
+      pointLightIntentsity: 1,
+    });
+
   const [hovered, hover] = useState(false);
   const mouse = useRef([0, 0]);
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -93,7 +101,11 @@ export function EpicBackground() {
         }}
       >
         <fog attach="fog" args={['white', 50, 190]} />
-        <pointLight distance={100} intensity={4} color="white" />
+        <pointLight
+          position={[pointLightX, pointLightY, pointLightZ]}
+          intensity={pointLightIntentsity}
+          color="white"
+        />
         <Model1 />
         <Particles count={isMobile ? 5000 : 600} mouse={mouse} />
         <Effects />

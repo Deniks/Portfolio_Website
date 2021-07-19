@@ -4,7 +4,7 @@ import { animated, useSpring, config } from 'react-spring';
 
 import { useLocation } from 'react-router';
 
-export default function DebitAnimation({ delay = 0, children }) {
+export function DebitAnimation({ delay = 0, children }) {
   const [isPageEntered, setPageEntered] = useState(false);
   const [isPageLeft, setPageLeft] = useState(false);
 
