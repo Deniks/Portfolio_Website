@@ -15,40 +15,57 @@ import {
   Heading,
 } from 'grommet';
 
+import { useSpring, animated } from 'react-spring';
 import { StyledCard } from './StyledCard';
 import { StyledTitle } from './StyledTitle';
 import { PrepareDescription } from './PrepareDescription';
 //import './styles.css';
 
-export function ProjectCard({ title, image, description, stack, links }) {
-  const [viewMore, setViewMore] = useState(false);
+export function ProjectCard({
+  title,
+  image,
+  description,
+  stack,
+  links,
+  id,
+  expanded,
+  setExpansion,
+}) {
+  const isExpanded = true; //id === expanded.id && expanded.active;
+  const styles = useSpring({
+    width: isExpanded ? '100%' : '300px',
+    height: isExpanded ? '100%' : '400px',
+  });
 
-  const handleButtonClick = () => {
-    setViewMore(!viewMore);
+  const handleCardExpansion = () => {
+    setExpansion({ id, active: isExpanded ? !isExpanded.active : true });
   };
+
   return stack ? (
-    <StyledCard>
+    <StyledCard style={styles}>
       <Grid
         rows={['auto', 'auto']}
         columns={['auto', 'auto']}
         areas={[
-          { name: 'header', start: [0, 0], end: [viewMore ? 0 : 1, 1] },
-          { name: 'body', start: [viewMore ? 1 : 0, 1], end: [1, 1] },
+          { name: 'header', start: [0, 0], end: [isExpanded ? 0 : 1, 1] },
+          { name: 'body', start: isExpanded ? [1, 0] : [0, 1], end: [1, 1] },
         ]}
       >
         <Box gridArea="header">
-          <Box gridArea="title">
-            <StyledTitle>{title}</StyledTitle>
-          </Box>
           {image ? (
-            <Box gridArea="image">
+            <Box gridArea="image" style={{ margin: 'auto 0' }}>
               <Image src={image} />
             </Box>
           ) : null}
         </Box>
 
         <Box gridArea="body" pad="small">
-          <Box gridArea="description">{PrepareDescription(description)}</Box>
+          <Box gridArea="title">
+            <StyledTitle expanded={isExpanded}>{title}</StyledTitle>
+          </Box>
+          <Box gridArea="description">
+            {isExpanded ? description : PrepareDescription(description)}
+          </Box>
           <Box gridArea="stack">
             <Heading level="5" margin="none">
               Technology used:{' '}
@@ -66,11 +83,9 @@ export function ProjectCard({ title, image, description, stack, links }) {
               </a>
             ))}
           </Box>
-          <Button onClick={handleButtonClick}>View</Button>
+          <Button onClick={handleCardExpansion}>View</Button>
         </Box>
       </Grid>
     </StyledCard>
-  ) : (
-    <Spinner />
-  ); // instead of null there should be sceleton or loader.
+  ) : null; // instead of null there should be sceleton or loader.
 }

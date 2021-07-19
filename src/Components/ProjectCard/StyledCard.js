@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-
+import styled, { css } from 'styled-components';
+import { animated } from 'react-spring';
 //   background-color: #17141d;
 
-export const StyledCard = styled.div`
+export const StyledCard = styled(animated.div)`
   display: flex;
   height: 400px;
   width: 300px;
