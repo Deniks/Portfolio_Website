@@ -21,6 +21,7 @@ import { StyledCard } from './StyledCard';
 import { StyledTitle } from './StyledTitle';
 import { PrepareDescription } from './PrepareDescription';
 import { TechnologyStack } from './TechnologyStack';
+import Icon from '../Icon';
 //import './styles.css';
 
 export function ProjectCard({
@@ -100,7 +101,11 @@ export function ProjectCard({
           </Box>
         </Box>
         <Box gridArea="footer" direction="row">
-          <TechnologyStack />
+          <Box pad="small" gap="medium" direction="row">
+            {stack.map((icon, i) => (
+              <Icon key={i} src={icon} />
+            ))}
+          </Box>
           <Box pad="small" style={{ marginLeft: 'auto' }}>
             <Button primary onClick={handleCardExpansion}>
               View

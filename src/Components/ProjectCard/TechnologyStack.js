@@ -15,6 +15,7 @@ import Apollo from '../../Assets/icons/apollo.svg';
 import Azure from '../../Assets/icons/azure.svg';
 import Express from '../../Assets/icons/express.svg';
 import Typescript from '../../Assets/icons/typescript.svg';
+import Nodejs from '../../Assets/icons/nodejs.svg';
 
 export function TechnologyStack() {
   return (
