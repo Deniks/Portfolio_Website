@@ -20,6 +20,7 @@ import { useSpring, animated } from 'react-spring';
 import { StyledCard } from './StyledCard';
 import { StyledTitle } from './StyledTitle';
 import { PrepareDescription } from './PrepareDescription';
+import { TechnologyStack } from './TechnologyStack';
 //import './styles.css';
 
 export function ProjectCard({
@@ -48,11 +49,12 @@ export function ProjectCard({
       {' '}
       {/* style={styles} for StlyedCard, removed to setup responsiveness in styled-compinenst */}
       <Grid
-        rows={['auto', 'auto']}
+        rows={['auto', 'auto', 'auto']}
         columns={['auto', 'auto']}
         areas={[
           { name: 'header', start: [0, 0], end: [isExpanded ? 0 : 1, 1] },
           { name: 'body', start: isExpanded ? [1, 0] : [0, 1], end: [1, 1] },
+          { name: 'footer', start: [0, 2], end: [1, 2] },
         ]}
       >
         <Box gridArea="header">
@@ -71,7 +73,8 @@ export function ProjectCard({
             {isExpanded ? description : PrepareDescription(description)}
           </Box>
           <Box gridArea="stack">
-            <Heading level="5" margin="none">
+            {/**
+             *             <Heading level="5" margin="none">
               Technology used:{' '}
             </Heading>
             <ul style={{ margin: 0, paddingLeft: '20px' }}>
@@ -79,6 +82,8 @@ export function ProjectCard({
                 <li key={i}>{technology}</li>
               ))}
             </ul>
+             * 
+             */}
           </Box>
           <Box gridArea="links">
             {links.map((link, i) => (
@@ -93,7 +98,14 @@ export function ProjectCard({
               </a>
             ))}
           </Box>
-          <Button onClick={handleCardExpansion}>View</Button>
+        </Box>
+        <Box gridArea="footer" direction="row">
+          <TechnologyStack />
+          <Box pad="small" style={{ marginLeft: 'auto' }}>
+            <Button primary onClick={handleCardExpansion}>
+              View
+            </Button>
+          </Box>
         </Box>
       </Grid>
     </StyledCard>
