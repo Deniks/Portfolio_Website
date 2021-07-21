@@ -16,7 +16,8 @@ import {
   ResponsiveContext,
 } from 'grommet';
 
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, config } from 'react-spring';
+import { useHover } from '@use-gesture/react';
 import { StyledCard } from './StyledCard';
 import { StyledTitle } from './StyledTitle';
 import { PrepareDescription } from './PrepareDescription';
@@ -35,22 +36,30 @@ export function ProjectCard({
   setExpansion,
 }) {
   const viewportSize = useContext(ResponsiveContext);
+  const [cardIsHovered, setHover] = useState(false);
   const isExpanded = false; //id === expanded.id && expanded.active;
   const styles = useSpring({
     width: isExpanded ? '100%' : '300px',
     height: isExpanded ? '100%' : '400px',
   });
 
+  const imageStyles = useSpring({
+    transform: cardIsHovered ? 'scale(1.2)' : 'scale(1.05)',
+    config: config.stiff,
+  });
+
+  const bind = useHover(({ active }) => setHover(active));
   const handleCardExpansion = () => {
     setExpansion({ id, active: isExpanded ? !isExpanded.active : true });
   };
 
   return stack ? (
-    <StyledCard size={viewportSize}>
+    <StyledCard size={viewportSize} {...bind()}>
       {' '}
       {/* style={styles} for StlyedCard, removed to setup responsiveness in styled-compinenst */}
       <Grid
-        rows={['auto', 'auto', 'auto']}
+        style={{ mineight: '100%' }}
+        rows={['auto', 'flex', 'auto']}
         columns={['auto', 'auto']}
         areas={[
           { name: 'header', start: [0, 0], end: [isExpanded ? 0 : 1, 1] },
@@ -60,8 +69,11 @@ export function ProjectCard({
       >
         <Box gridArea="header">
           {image ? (
-            <Box gridArea="image" style={{ margin: 'auto 0' }}>
-              <Image src={image} />
+            <Box
+              gridArea="image"
+              style={{ margin: 'auto 0', overflow: 'hidden' }}
+            >
+              <animated.img style={imageStyles} alt="hey" src={image} />
             </Box>
           ) : null}
         </Box>
@@ -73,23 +85,11 @@ export function ProjectCard({
           <Box gridArea="description">
             {isExpanded ? description : PrepareDescription(description)}
           </Box>
-          <Box gridArea="stack">
-            {/**
-             *             <Heading level="5" margin="none">
-              Technology used:{' '}
-            </Heading>
-            <ul style={{ margin: 0, paddingLeft: '20px' }}>
-              {stack.map((technology, i) => (
-                <li key={i}>{technology}</li>
-              ))}
-            </ul>
-             * 
-             */}
-          </Box>
+
           <Box gridArea="links">
             {links.map((link, i) => (
               <a
-                style={{ color: 'inherit' }}
+                style={{ color: 'inherit', maxWidth: 'max-content' }}
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -107,8 +107,15 @@ export function ProjectCard({
             ))}
           </Box>
           <Box pad="small" style={{ marginLeft: 'auto' }}>
-            <Button primary onClick={handleCardExpansion}>
-              View
+            <Button
+              style={{
+                padding: '7px 10px',
+                borderRadius: '4px',
+                border: '2px solid #fff',
+              }}
+              onClick={handleCardExpansion}
+            >
+              Read More
             </Button>
           </Box>
         </Box>

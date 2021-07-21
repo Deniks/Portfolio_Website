@@ -16,7 +16,7 @@ export default function NominalHeadline() {
       </DebitAnimation>
 
       <DebitAnimation delay={700}>
-        <Heading level={3} margin="none" color="grey">
+        <Heading level={3} margin="none">
           I develop full-stack desktop software, websites and mobile
           applications
         </Heading>

@@ -4,6 +4,7 @@ import { Grid, ResponsiveContext } from 'grommet';
 import ProjectCard from '../ProjectCard';
 
 import { projectsData } from './seed';
+import { AnimateCatalog } from './AnimateCatalog';
 
 export function ProjectCatalog() {
   const [isExpanded, setExpansion] = useState({ id: null, active: false });
@@ -22,21 +23,24 @@ export function ProjectCatalog() {
       : size === 'medium'
       ? ['auto', 'auto']
       : ['auto'];
+
   return (
     <Grid rows={rows} columns={columns} gap="small" justify="center">
-      {projectsData.map(({ name, image, description, stack, links }, i) => (
-        <ProjectCard
-          title={name}
-          image={image}
-          description={description}
-          stack={stack}
-          links={links}
-          key={i}
-          id={i}
-          expanded={isExpanded}
-          setExpansion={setExpansion}
-        />
-      ))}
+      <AnimateCatalog>
+        {projectsData.map(({ name, image, description, stack, links }, i) => (
+          <ProjectCard
+            title={name}
+            image={image}
+            description={description}
+            stack={stack}
+            links={links}
+            key={i}
+            id={i}
+            expanded={isExpanded}
+            setExpansion={setExpansion}
+          />
+        ))}
+      </AnimateCatalog>
     </Grid>
   );
 }

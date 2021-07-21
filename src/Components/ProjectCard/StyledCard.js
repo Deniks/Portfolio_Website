@@ -26,6 +26,9 @@ export const StyledCard = styled(animated.div)`
   display: flex;
   height: 100%;
   background-color: transparent;
+  &:hover {
+    backdrop-filter: blur(5px);
+  }
   border-radius: 5px;
   box-shadow: -1rem 0 3rem #000;
   transition: 0.4s ease-out;

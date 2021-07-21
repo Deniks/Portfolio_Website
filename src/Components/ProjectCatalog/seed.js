@@ -48,49 +48,46 @@ export const projectsData = [
       'https://github.com/Deniks/hot-beans',
     ],
   },
-  {
-    name: 'BMI Calculator',
-    description:
-      'This is a landing page for my college Web Developement module closure. The aim is to apply design principles such as responsive, adaptive, functional UI, wise colour scheme whlist considering SEO principles such as correct html tagging, meta descriptions, load time, markup validation.',
-    stack: [CSharp],
-    image: null,
-    links: [
-      'https://hot-beans.herokuapp.com/',
-      'https://github.com/Deniks/hot-beans',
-    ],
-  },
-  {
-    name: 'Music Suggester',
-    description:
-      'This is a landing page for my college Web Developement module closure. The aim is to apply design principles such as responsive, adaptive, functional UI, wise colour scheme whlist considering SEO principles such as correct html tagging, meta descriptions, load time, markup validation.',
-    stack: [Python, Django, Babel, Sass, Azure],
-    image: rs,
-    links: [
-      'https://hot-beans.herokuapp.com/',
-      'https://github.com/Deniks/hot-beans',
-    ],
-  },
+  // {
+  //   name: 'BMI Calculator',
+  //   description:
+  //     'This is a landing page for my college Web Developement module closure. The aim is to apply design principles such as responsive, adaptive, functional UI, wise colour scheme whlist considering SEO principles such as correct html tagging, meta descriptions, load time, markup validation.',
+  //   stack: [CSharp],
+  //   image: null,
+  //   links: [
+  //     'https://hot-beans.herokuapp.com/',
+  //     'https://github.com/Deniks/hot-beans',
+  //   ],
+  // },
+  // {
+  //   name: 'Music Suggester',
+  //   description:
+  //     'This is a landing page for my college Web Developement module closure. The aim is to apply design principles such as responsive, adaptive, functional UI, wise colour scheme whlist considering SEO principles such as correct html tagging, meta descriptions, load time, markup validation.',
+  //   stack: [Python, Django, Babel, Sass, Azure],
+  //   image: rs,
+  //   links: [
+  //     'https://hot-beans.herokuapp.com/',
+  //     'https://github.com/Deniks/hot-beans',
+  //   ],
+  // },
 
-  {
-    name: 'Reflectively.log',
-    description:
-      'This is a landing page for my college Web Developement module closure. The aim is to apply design principles such as responsive, adaptive, functional UI, wise colour scheme whlist considering SEO principles such as correct html tagging, meta descriptions, load time, markup validation.',
-    stack: [MongoDB, Express, Reactjs, Nodejs, GraphQl, Bootstrap],
-    image: null,
-    links: [
-      'https://hot-beans.herokuapp.com/',
-      'https://github.com/Deniks/hot-beans',
-    ],
-  },
+  // {
+  //   name: 'Reflectively.log',
+  //   description:
+  //     'This is a landing page for my college Web Developement module closure. The aim is to apply design principles such as responsive, adaptive, functional UI, wise colour scheme whlist considering SEO principles such as correct html tagging, meta descriptions, load time, markup validation.',
+  //   stack: [MongoDB, Express, Reactjs, Nodejs, GraphQl, Bootstrap],
+  //   image: null,
+  //   links: [
+  //     'https://hot-beans.herokuapp.com/',
+  //     'https://github.com/Deniks/hot-beans',
+  //   ],
+  // },
   {
     name: 'Valhalla-cli',
     description:
       'This is a landing page for my college Web Developement module closure. The aim is to apply design principles such as responsive, adaptive, functional UI, wise colour scheme whlist considering SEO principles such as correct html tagging, meta descriptions, load time, markup validation.',
     stack: [Nodejs, MongoDB, Typescript],
-    image: null,
-    links: [
-      'https://hot-beans.herokuapp.com/',
-      'https://github.com/Deniks/hot-beans',
-    ],
+    image: img,
+    links: ['https://github.com/Deniks/valhalla-cli'],
   },
 ];

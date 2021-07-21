@@ -1627,6 +1627,18 @@
   resolved "https://registry.yarnpkg.com/@types/yoga-layout/-/yoga-layout-1.9.2.tgz#efaf9e991a7390dc081a0b679185979a83a9639a"
   integrity sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==
 
+"@use-gesture/core@^10.0.0-beta.21":
+  version "10.0.0-beta.21"
+  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.0.0-beta.21.tgz#3af4bd698e695f8b3ac7f5cf758d1a0d7d9e915b"
+  integrity sha512-0PJAAe+kWLRhJRoM0Fciy9qgyciAaFAUjCv1TbYs8ZnS2NM2e4ZXRaVoEPhNm2SYQLR4tstirr2d1L/EJixj9Q==
+
+"@use-gesture/react@^10.0.0-beta.21":
+  version "10.0.0-beta.21"
+  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.0.0-beta.21.tgz#8fdc75a770e15edefdcf157140885f7ea30d3566"
+  integrity sha512-OMvQFDayZZtO0EI6l7qQSTCfrTzYC0+xTnCL8M8Ddwr2O7BsletlUG1R2MN4I3kDhXWEV0BHjP4W3V5BdnfcnA==
+  dependencies:
+    "@use-gesture/core" "^10.0.0-beta.21"
+
 "@webassemblyjs/ast@1.7.6":
   version "1.7.6"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.6.tgz#3ef8c45b3e5e943a153a05281317474fef63e21e"

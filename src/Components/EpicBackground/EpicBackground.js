@@ -10,6 +10,10 @@ import { useControls } from 'leva';
 import './styles.css';
 import Model1 from '../FBX/Model1';
 import Model2 from '../FBX/Model2';
+import Model3 from '../FBX/Model3/leftArrow';
+import Model4 from '../FBX/Model3/rightArrow';
+import Model5 from '../FBX/Model3/slash';
+
 import Cursor from '../Cursor';
 
 function Ellipse(props) {
@@ -106,7 +110,9 @@ export function EpicBackground() {
           intensity={pointLightIntentsity}
           color="white"
         />
-        <Model1 />
+        <Model3 />
+        <Model4 />
+        <Model5 />
         <Particles count={isMobile ? 5000 : 600} mouse={mouse} />
         <Effects />
       </Canvas>

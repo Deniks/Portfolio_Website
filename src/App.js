@@ -39,7 +39,7 @@ const App = () => {
       <ResponsiveContext.Consumer>
         {(size) => (
           <Grid
-            style={{ maxHeight: '100vh', height: '100vh' }}
+            style={{ minHeight: '100vh' }}
             rows={['10vh', 'auto', '10vh']}
             columns={['10vw', 'auto', '10vw']}
             gap="small"
