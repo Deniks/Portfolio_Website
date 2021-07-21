@@ -13,7 +13,7 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Text001.geometry}
         material={materials['Material.001']}
-        position={[-7.3, 0, 25]}
+        position={[0, 0, 25]}
       />
     </group>
   );

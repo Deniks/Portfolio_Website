@@ -13,7 +13,7 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Text.geometry}
         material={materials.cw_blink}
-        position={[-7.5, 0, 25]}
+        position={[-0.5, 0, 25]}
       />
     </group>
   );

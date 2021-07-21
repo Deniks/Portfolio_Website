@@ -1,5 +1,12 @@
 import * as THREE from 'three';
-import React, { Suspense, useState, useEffect, useRef, useMemo } from 'react';
+import React, {
+  Suspense,
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useContext,
+} from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import Text from './Text';
 import Effects from './Effects';
@@ -7,12 +14,17 @@ import Sparks from './Sparks';
 import Particles from './Particles';
 import { Box } from 'grommet';
 import { useControls } from 'leva';
+import { Flex, Box as FLBox } from '@react-three/flex';
 import './styles.css';
 import Model1 from '../FBX/Model1';
 import Model2 from '../FBX/Model2';
 import Model3 from '../FBX/Model3/leftArrow';
 import Model4 from '../FBX/Model3/rightArrow';
 import Model5 from '../FBX/Model3/slash';
+import OpenTagModel from '../FBX/Model3/openTag';
+import CloseTagModel from '../FBX/Model3/closeTag';
+
+import { useStore } from '../VPButton/store';
 
 import Cursor from '../Cursor';
 
@@ -77,14 +89,21 @@ function Number({ hover }) {
 }
 
 export function EpicBackground() {
-  const { pointLightX, pointLightY, pointLightZ, pointLightIntentsity } =
-    useControls({
-      pointLightX: 10,
-      pointLightY: 100,
-      pointLightZ: 100,
-      pointLightIntentsity: 1,
-    });
+  const projectButtonIsHovered = useStore((state) => state.isHovered);
 
+  const {
+    pointLightX,
+    pointLightY,
+    pointLightZ,
+    pointLightIntentsity,
+    tagRotation,
+  } = useControls({
+    pointLightX: 10,
+    pointLightY: 100,
+    pointLightZ: 100,
+    pointLightIntentsity: 1,
+    tagRotation: 0,
+  });
   const [hovered, hover] = useState(false);
   const mouse = useRef([0, 0]);
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -107,13 +126,23 @@ export function EpicBackground() {
         <fog attach="fog" args={['white', 50, 190]} />
         <pointLight
           position={[pointLightX, pointLightY, pointLightZ]}
-          intensity={pointLightIntentsity}
+          intensity={projectButtonIsHovered ? 7.5 : 1}
           color="white"
         />
-        <Model3 />
-        <Model4 />
-        <Model5 />
-        <Particles count={isMobile ? 5000 : 600} mouse={mouse} />
+        <Flex
+          flexDirection="row"
+          flexWrap="wrap"
+          plane="xy"
+          size={[10, 10, 0]}
+          position={[-5, 4, 0]}
+          justifyContent="space-between"
+          alignContent="space-between"
+        >
+          <OpenTagModel rotation={[tagRotation, tagRotation, tagRotation]} />
+          <CloseTagModel marginTop={5} />
+        </Flex>
+
+        <Particles count={isMobile ? 600 : 5000} mouse={mouse} />
         <Effects />
       </Canvas>
     </Box>
