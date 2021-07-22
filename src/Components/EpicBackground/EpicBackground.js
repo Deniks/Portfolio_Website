@@ -8,6 +8,8 @@ import React, {
   useContext,
 } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { useSpring } from '@react-spring/core';
+import { animated } from '@react-spring/three';
 import Text from './Text';
 import Effects from './Effects';
 import Sparks from './Sparks';
@@ -23,92 +25,33 @@ import Model4 from '../FBX/Model3/rightArrow';
 import Model5 from '../FBX/Model3/slash';
 import OpenTagModel from '../FBX/Model3/openTag';
 import CloseTagModel from '../FBX/Model3/closeTag';
-
 import { useStore } from '../VPButton/store';
 
+import { useLocation } from 'react-router';
 import Cursor from '../Cursor';
-
-function Ellipse(props) {
-  const geometry = useMemo(() => {
-    const curve = new THREE.EllipseCurve(0, 0, 10, 3, 0, 2 * Math.PI, false, 0);
-    const points = curve.getPoints(50);
-    return new THREE.BufferGeometry().setFromPoints(points);
-  }, []);
-  return (
-    <line geometry={geometry} {...props}>
-      <meshBasicMaterial />
-    </line>
-  );
-}
-
-function ReactAtom(props) {
-  return (
-    <group {...props}>
-      <Ellipse />
-      <Ellipse rotation={[0, 0, Math.PI / 3]} />
-      <Ellipse rotation={[0, 0, -Math.PI / 3]} />
-      <mesh>
-        <sphereGeometry args={[0.5, 32, 32]} />
-        <meshBasicMaterial color="red" />
-      </mesh>
-    </group>
-  );
-}
-
-function Number({ hover }) {
-  const ref = useRef();
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.position.x = THREE.MathUtils.lerp(
-        ref.current.position.x,
-        state.mouse.x * 2,
-        0.1
-      );
-      ref.current.rotation.x = THREE.MathUtils.lerp(
-        ref.current.rotation.x,
-        state.mouse.y / 2,
-        0.1
-      );
-      ref.current.rotation.y = 0.8;
-    }
-  });
-  return (
-    <Suspense fallback={null}>
-      <group ref={ref}>
-        <Text
-          size={7}
-          onPointerOver={() => hover(true)}
-          onPointerOut={() => hover(false)}
-        >
-          4
-        </Text>
-        <ReactAtom position={[35, -20, 0]} scale={[1, 0.5, 1]} />
-      </group>
-    </Suspense>
-  );
-}
+import { props } from 'bluebird';
 
 export function EpicBackground() {
   const projectButtonIsHovered = useStore((state) => state.isHovered);
 
-  const {
-    pointLightX,
-    pointLightY,
-    pointLightZ,
-    pointLightIntentsity,
-    tagRotation,
-  } = useControls({
+  const { pointLightX, pointLightY, pointLightZ, tagRotation } = useControls({
     pointLightX: 10,
     pointLightY: 100,
     pointLightZ: 100,
-    pointLightIntentsity: 1,
     tagRotation: 0,
   });
   const [hovered, hover] = useState(false);
   const mouse = useRef([0, 0]);
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const { pathname } = useLocation();
 
+  const { spring } = useSpring({
+    spring: pathname === '/projects',
+  });
+
+  const modelPosition = spring.to([0, 1], [0, -5]);
   useEffect(() => {
+    console.log(pathname);
     document.body.style.cursor = hovered ? 'pointer' : console.log('hovered');
   }, [hovered]);
 
@@ -127,14 +70,15 @@ export function EpicBackground() {
         <pointLight
           position={[pointLightX, pointLightY, pointLightZ]}
           intensity={projectButtonIsHovered ? 7.5 : 1}
-          color="white"
+          color={'white'}
         />
+
         <Flex
           flexDirection="row"
           flexWrap="wrap"
           plane="xy"
           size={[10, 10, 0]}
-          position={[-5, 4, 0]}
+          position={[-5, pathname === '/projects' ? 12 : 4, 0]}
           justifyContent="space-between"
           alignContent="space-between"
         >
