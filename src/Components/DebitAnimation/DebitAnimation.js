@@ -1,8 +1,6 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { animated, useSpring, config } from 'react-spring';
-
-import { useLocation } from 'react-router';
 
 export function DebitAnimation({ delay = 0, children }) {
   const [isPageEntered, setPageEntered] = useState(false);

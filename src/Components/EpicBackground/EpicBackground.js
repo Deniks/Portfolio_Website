@@ -50,10 +50,6 @@ export function EpicBackground() {
   });
 
   const modelPosition = spring.to([0, 1], [0, -5]);
-  useEffect(() => {
-    console.log(pathname);
-    document.body.style.cursor = hovered ? 'pointer' : console.log('hovered');
-  }, [hovered]);
 
   return (
     <Box fill>
