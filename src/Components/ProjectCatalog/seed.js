@@ -4,21 +4,23 @@ import hotBeans from '../../Assets/hot-beans.png';
 
 import GraphQl from '../../Assets/icons/graphql.svg';
 import MaterialUI from '../../Assets/icons/material-ui.svg';
-import Django from '../../Assets/icons/django.svg';
-import Python from '../../Assets/icons/python.svg';
-import MongoDB from '../../Assets/icons/mongo.svg';
-import CSharp from '../../Assets/icons/csharp.svg';
-import Sass from '../../Assets/icons/sass.svg';
-import Apollo from '../../Assets/icons/apollo.svg';
-import Azure from '../../Assets/icons/azure.svg';
 import Express from '../../Assets/icons/express.svg';
 import Typescript from '../../Assets/icons/typescript.svg';
 import Nodejs from '../../Assets/icons/nodejs.svg';
 import Css from '../../Assets/icons/css.svg';
 import Html from '../../Assets/icons/html.svg';
 import Reactjs from '../../Assets/icons/reactjs.svg';
-import Babel from '../../Assets/icons/babel.svg';
-import Bootstrap from '../../Assets/icons/bootstrap.svg';
+import Apollo from '../../Assets/icons/apollo.svg';
+import MongoDB from '../../Assets/icons/mongo.svg';
+
+// import Django from '../../Assets/icons/django.svg';
+// import Python from '../../Assets/icons/python.svg';
+// import CSharp from '../../Assets/icons/csharp.svg';
+// import Sass from '../../Assets/icons/sass.svg';
+// import Azure from '../../Assets/icons/azure.svg';
+
+// import Babel from '../../Assets/icons/babel.svg';
+// import Bootstrap from '../../Assets/icons/bootstrap.svg';
 export const projectsData = [
   {
     name: 'Real Estate',

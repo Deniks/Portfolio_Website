@@ -1,27 +1,12 @@
 import React, { useState, useContext } from 'react';
 
-import {
-  Image,
-  Box,
-  Grid,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  List,
-  Markdown,
-  Spinner,
-  Button,
-  Heading,
-  ResponsiveContext,
-} from 'grommet';
+import { Box, Grid, Button, ResponsiveContext } from 'grommet';
 
 import { useSpring, animated, config } from 'react-spring';
 import { useHover } from '@use-gesture/react';
 import { StyledCard } from './StyledCard';
 import { StyledTitle } from './StyledTitle';
 import { PrepareDescription } from './PrepareDescription';
-import { TechnologyStack } from './TechnologyStack';
 import Icon from '../Icon';
 //import './styles.css';
 
