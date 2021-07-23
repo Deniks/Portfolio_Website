@@ -41,7 +41,11 @@ const App = () => {
           <Grid
             style={{ minHeight: '100vh' }}
             rows={['10vh', 'auto', '10vh']}
-            columns={['10vw', 'auto', '10vw']}
+            columns={
+              size === 'small'
+                ? ['5vw', 'auto', '5vw']
+                : ['10vw', 'auto', '10vw']
+            }
             gap="small"
             areas={[
               { name: 'header', start: [0, 0], end: [2, 0] },

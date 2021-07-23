@@ -61,7 +61,7 @@ export function EpicBackground() {
         <fog attach="fog" args={['white', 50, 190]} />
         <pointLight
           position={[10, 100, 100]}
-          intensity={projectButtonIsHovered ? 7.5 : 1}
+          intensity={projectButtonIsHovered || isMobile ? 7.5 : 1}
           color={'white'}
         />
 
@@ -70,15 +70,15 @@ export function EpicBackground() {
           flexWrap="wrap"
           plane="xy"
           size={[10, 10, 0]}
-          position={[-5, pathname === '/projects' ? 12 : 4, 0]}
-          justifyContent="space-between"
+          position={[-5, pathname === '/projects' ? 12 : isMobile ? 3.5 : 4, 0]}
+          justifyContent={isMobile ? 'center' : 'space-between'}
           alignContent="space-between"
         >
           <OpenTagModel />
           <CloseTagModel marginTop={5} />
         </Flex>
 
-        <Particles count={isMobile ? 600 : 5000} mouse={mouse} />
+        <Particles count={isMobile ? 1600 : 5000} mouse={mouse} />
         <Effects />
       </Canvas>
     </Box>
