@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Box, Heading } from 'grommet';
 import VPButton from '../VPButton';
 import DebitAnimation from '../DebitAnimation';
-
+import PDF from '../../Assets/DenissRezanovicsCV.pdf';
 export default function NominalHeadline() {
   return (
     <Box align="center" fill>
@@ -22,13 +22,33 @@ export default function NominalHeadline() {
         </Heading>
       </DebitAnimation>
 
-      <Box margin="large">
-        <Link to="/projects">
-          <DebitAnimation delay={1300}>
-            <VPButton />
-          </DebitAnimation>
-        </Link>
+      <Box margin="large" gap="medium" style={{ textAlign: 'center' }}>
+        <Box>
+          <Link to="/projects">
+            <DebitAnimation delay={1300}>
+              <VPButton color="#e0e5ec" text="View Projects" />
+            </DebitAnimation>
+          </Link>
+        </Box>
+
+        <Box>
+          <Link to={PDF} target="_blank">
+            <DebitAnimation delay={1900}>
+              <VPButton
+                color="yellow"
+                borderColor="#F4CC70"
+                text="Open Resume"
+              />
+            </DebitAnimation>
+          </Link>
+        </Box>
       </Box>
     </Box>
   );
 }
+
+//D09683
+//F4CC70
+//FFBB00
+//E6DF44
+//FFD64D

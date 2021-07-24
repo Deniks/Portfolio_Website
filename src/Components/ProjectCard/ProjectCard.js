@@ -1,6 +1,6 @@
 import React, { useState, useContext, Suspense, lazy } from 'react';
 
-import { Box, Grid, Button, ResponsiveContext } from 'grommet';
+import { Box, Grid, Button, ResponsiveContext, Tip } from 'grommet';
 
 import { useSpring, animated, config } from 'react-spring';
 import { useHover } from '@use-gesture/react';
@@ -26,10 +26,6 @@ export function ProjectCard({
   const viewportSize = useContext(ResponsiveContext);
   const [cardIsHovered, setHover] = useState(false);
   const isExpanded = false; //id === expanded.id && expanded.active;
-  const styles = useSpring({
-    width: isExpanded ? '100%' : '300px',
-    height: isExpanded ? '100%' : '400px',
-  });
 
   const bind = useHover(({ active }) => setHover(active));
   const handleCardExpansion = () => {
@@ -73,15 +69,16 @@ export function ProjectCard({
 
           <Box gridArea="links">
             {links.map((link, i) => (
-              <a
-                style={{ color: 'inherit', maxWidth: 'max-content' }}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={i}
-              >
-                {link}
-              </a>
+              <Box>
+                <a
+                  style={{ color: 'inherit', maxWidth: 'max-content' }}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link}
+                </a>
+              </Box>
             ))}
           </Box>
         </Box>

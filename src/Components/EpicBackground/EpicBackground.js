@@ -24,7 +24,8 @@ import { useStore } from '../VPButton/store';
 import { useLocation } from 'react-router';
 
 export function EpicBackground() {
-  const projectButtonIsHovered = useStore((state) => state.isHovered);
+  const mainButtonIsHovered = useStore((state) => state.isHovered);
+  const mainButtonColor = useStore((state) => state.buttonColor);
 
   // const { pointLightX, pointLightY, pointLightZ, tagRotation } = useControls({
   //   pointLightX: 10,
@@ -61,8 +62,8 @@ export function EpicBackground() {
         <fog attach="fog" args={['white', 50, 190]} />
         <pointLight
           position={[10, 100, 100]}
-          intensity={projectButtonIsHovered || isMobile ? 7.5 : 1}
-          color={'white'}
+          intensity={mainButtonIsHovered || isMobile ? 7.5 : 1}
+          color={mainButtonIsHovered ? mainButtonColor : 'white'}
         />
 
         <Flex

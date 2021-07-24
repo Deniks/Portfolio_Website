@@ -2,6 +2,7 @@ import create from 'zustand';
 
 export const useStore = create((set) => ({
   isHovered: false,
-  setHover: () => set((state) => ({ isHovered: true })),
+  buttonColor: '',
+  setHover: (buttonColor) => set((state) => ({ isHovered: true, buttonColor })),
   removeHover: () => set((state) => ({ isHovered: false })),
 }));

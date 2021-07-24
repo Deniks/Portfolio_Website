@@ -4,7 +4,10 @@ export const StyledButton = styled.button`
   padding: 15px 35px;
   position: relative;
   display: inline-block;
-  border: 2px solid #fff;
+  ${({ borderColor = '#fff' }) =>
+    css`
+      border: 2px solid ${borderColor};
+    `}
   border-radius: 2px;
   box-sizing: inherit;
   cursor: pointer;
@@ -24,7 +27,10 @@ export const StyledButton = styled.button`
     top: 0;
     right: 0;
     z-index: -1;
-    background: #e0e5ec;
+    ${({ buttonColor = '#fff' }) =>
+      css`
+        background: ${buttonColor};
+      `}
     transition: all 0.7s ease;
   }
   &:hover {
