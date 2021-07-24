@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, Suspense, lazy } from 'react';
 
 import { Box, Grid, Button, ResponsiveContext } from 'grommet';
 
@@ -8,7 +8,10 @@ import { StyledCard } from './StyledCard';
 import { StyledTitle } from './StyledTitle';
 import { PrepareDescription } from './PrepareDescription';
 import Icon from '../Icon';
+import ImageLoader from '../ImageLoader';
 //import './styles.css';
+
+const Image = lazy(() => import('./Image'));
 
 export function ProjectCard({
   title,
@@ -26,11 +29,6 @@ export function ProjectCard({
   const styles = useSpring({
     width: isExpanded ? '100%' : '300px',
     height: isExpanded ? '100%' : '400px',
-  });
-
-  const imageStyles = useSpring({
-    transform: cardIsHovered ? 'scale(1.2)' : 'scale(1.05)',
-    config: config.stiff,
   });
 
   const bind = useHover(({ active }) => setHover(active));
@@ -58,7 +56,9 @@ export function ProjectCard({
               gridArea="image"
               style={{ margin: 'auto 0', overflow: 'hidden' }}
             >
-              <animated.img style={imageStyles} alt="hey" src={image} />
+              <Suspense fallback={<ImageLoader />}>
+                <Image src={image} zoom={cardIsHovered} />
+              </Suspense>
             </Box>
           ) : null}
         </Box>
@@ -85,13 +85,22 @@ export function ProjectCard({
             ))}
           </Box>
         </Box>
-        <Box gridArea="footer" direction="row">
-          <Box pad="small" gap="medium" direction="row">
+        <Box
+          gridArea="footer"
+          direction="row"
+          style={{ justifyContent: 'space-between' }}
+        >
+          <Box
+            pad="small"
+            gap="medium"
+            direction="row"
+            style={{ flexWrap: 'wrap' }}
+          >
             {stack.map((icon, i) => (
               <Icon key={i} src={icon} />
             ))}
           </Box>
-          <Box pad="small" style={{ marginLeft: 'auto' }}>
+          <Box pad="small" justify="end">
             <Button
               style={{
                 padding: '7px 10px',
