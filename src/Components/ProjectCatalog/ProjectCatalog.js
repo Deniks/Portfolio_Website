@@ -1,14 +1,14 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, Suspense, lazy } from 'react';
 
 import { Grid, ResponsiveContext } from 'grommet';
-import ProjectCard from '../ProjectCard';
 
 import { projectsData } from './seed';
 import { AnimateCatalog } from './AnimateCatalog';
+import { CardSkelton } from '../ProjectCard/CardSkelton';
+
+const ProjectCard = lazy(() => import('../ProjectCard'));
 
 export function ProjectCatalog() {
-  const [isExpanded, setExpansion] = useState({ id: null, active: false });
-
   const size = useContext(ResponsiveContext);
   const columns =
     size === 'large'
@@ -28,17 +28,16 @@ export function ProjectCatalog() {
     <Grid rows={rows} columns={columns} gap="small" justify="center">
       <AnimateCatalog>
         {projectsData.map(({ name, image, description, stack, links }, i) => (
-          <ProjectCard
-            title={name}
-            image={image}
-            description={description}
-            stack={stack}
-            links={links}
-            key={i}
-            id={i}
-            expanded={isExpanded}
-            setExpansion={setExpansion}
-          />
+          <Suspense key={i} fallback={<CardSkelton />}>
+            <ProjectCard
+              title={name}
+              image={image}
+              description={description}
+              stack={stack}
+              links={links}
+              id={i}
+            />
+          </Suspense>
         ))}
       </AnimateCatalog>
     </Grid>

@@ -37,7 +37,7 @@ export function EpicBackground() {
   const mouse = useRef([0, 0]);
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const { pathname } = useLocation();
-
+  const isHomePage = pathname === '/';
   const { spring } = useSpring({
     spring: pathname === '/projects',
   });
@@ -65,19 +65,20 @@ export function EpicBackground() {
           intensity={mainButtonIsHovered || isMobile ? 7.5 : 1}
           color={mainButtonIsHovered ? mainButtonColor : 'white'}
         />
-
-        <Flex
-          flexDirection="row"
-          flexWrap="wrap"
-          plane="xy"
-          size={[10, 10, 0]}
-          position={[-5, pathname === '/projects' ? 12 : isMobile ? 3.5 : 4, 0]}
-          justifyContent={isMobile ? 'center' : 'space-between'}
-          alignContent="space-between"
-        >
-          <OpenTagModel />
-          <CloseTagModel marginTop={5} />
-        </Flex>
+        {isHomePage ? (
+          <Flex
+            flexDirection="row"
+            flexWrap="wrap"
+            plane="xy"
+            size={[10, 10, 0]}
+            position={[-5, 4, 0]}
+            justifyContent={isMobile ? 'center' : 'space-between'}
+            alignContent="space-between"
+          >
+            <OpenTagModel />
+            <CloseTagModel marginTop={5} />
+          </Flex>
+        ) : null}
 
         <Particles count={isMobile ? 1600 : 5000} mouse={mouse} />
         <Effects />

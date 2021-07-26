@@ -7,7 +7,7 @@ import { useGLTF } from '@react-three/drei';
 
 export default function Model(props) {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/3dcode-slash.gltf');
+  const { nodes, materials } = useGLTF('/3DModels/3dcode-slash.gltf');
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -19,4 +19,4 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload('/3dcode-slash.gltf');
+useGLTF.preload('/3DModels/3dcode-slash.gltf');

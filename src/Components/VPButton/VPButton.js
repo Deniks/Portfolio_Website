@@ -4,21 +4,33 @@ import { Box } from 'grommet';
 
 import { StyledButton } from './StyledButton';
 
-import { useHover } from '@use-gesture/react';
+import { useHover, useGesture } from '@use-gesture/react';
 import { useStore } from './store';
 export function VPButton(props) {
   //const [isHovered, setHover] = useState(false);
   const setHover = useStore((state) => state.setHover);
   const removeHover = useStore((state) => state.removeHover);
 
-  const bind = useHover(({ down, active }) => {
-    if (active) {
-      setHover(props.color);
-    } else {
-      removeHover();
-    }
-  });
+  // const bind = useHover(({ active }) => {
+  //   if (active) {
+  //     setHover(props.color);
+  //   } else {
+  //     removeHover();
+  //   }
+  // });
 
+  const bind = useGesture({
+    onHover: ({ active }) => {
+      if (active) {
+        setHover(props.color);
+      } else {
+        removeHover();
+      }
+    },
+    onDrag: ({ active }) => {
+      setHover(props.color);
+    },
+  });
   return (
     <StyledButton
       buttonColor={props.color}

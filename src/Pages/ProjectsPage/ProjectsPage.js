@@ -7,7 +7,6 @@ import DebitAnimation from '../../Components/DebitAnimation';
 
 export function ProjectsPage() {
   const minimalAnimationDelay = 150;
-  const [isExpanded, setExpansion] = useState({ id: null, active: false });
   return (
     <div>
       <Box fill>
