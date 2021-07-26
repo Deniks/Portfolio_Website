@@ -16,8 +16,17 @@ export function Header() {
       </Box>
 
       <Nav direction="row" pad="small" gap="xsmall">
-        <Anchor icon={<Github />} hoverIndicator />
-        <Anchor icon={<Linkedin />} />
+        <Anchor
+          href="https://github.com/Deniks"
+          target="_blank"
+          icon={<Github />}
+          hoverIndicator
+        />
+        <Anchor
+          href="https://www.linkedin.com/in/deniss-rezanovics-600088173/"
+          target="_blank"
+          icon={<Linkedin />}
+        />
       </Nav>
     </GrommetHeader>
   );

@@ -27,7 +27,7 @@ export function VPButton(props) {
         removeHover();
       }
     },
-    onDrag: ({ active }) => {
+    onDrag: () => {
       setHover(props.color);
     },
   });
