@@ -1,7 +1,14 @@
-import denixImg from '../../Assets/logo.png';
-import realEstateImg from '../../Assets/real-estate.png';
-import hotBeansImg from '../../Assets/hot-beans.png';
-import valhallaCLIImg from '../../Assets/valhalla-cli.png';
+// import denixImg from '../../Assets/logo.png';
+// import realEstateImg from '../../Assets/real-estate.png';
+// import hotBeansImg from '../../Assets/hot-beans.png';
+// import valhallaCLIImg from '../../Assets/valhalla-cli.png';
+
+import denixImg from '../../Assets/images/compressed/logo.png';
+import realEstateImg from '../../Assets/images/compressed/real-estate.png';
+import hotBeansImg from '../../Assets/images/compressed/hot-beans.png';
+import valhallaCLIImg from '../../Assets/images/compressed/valhalla-cli.png';
+import bmiCalculator from '../../Assets/images/compressed/bmi-calculator.png';
+
 import GraphQl from '../../Assets/icons/graphql.svg';
 import MaterialUI from '../../Assets/icons/material-ui.svg';
 import Express from '../../Assets/icons/express.svg';
@@ -28,13 +35,11 @@ export const projectsData = [
       'This is an E-Commerce SPA designed to provide user ability to browse listed appartments and check-in/out as well.',
     stack: [Reactjs, MaterialUI, GraphQl, Apollo, Express, MongoDB, Typescript],
     image: realEstateImg,
-    links: ['https://github.com/Deniks/Apartment-Booking-App'],
+    links: [
+      'https://github.com/Deniks/Apartment-Booking-App',
+      'https://alternative-choice-apartments.netlify.app/',
+    ],
     elaboration: null,
-    // {
-    //   myRole: '',
-    //   projectDifficulties: '',
-    //   mySolution: '',
-    // },
   },
   {
     name: 'Landing',
@@ -56,7 +61,7 @@ export const projectsData = [
     description:
       "This is a BMI calculator WPF application. Throughout the project there are used OOP principles such as encapsulation, abstraction, inheritance, polymorphism and more. The goal of this project is to, of course, revise the C# at its core and train design thinking. Basically project's code is borrowed from BMI-Calculator-CLI but now it is possible to interact with it in GUI thanks to WPF framework 🚀.",
     stack: [CSharp],
-    image: denixImg,
+    image: bmiCalculator,
     links: ['https://github.com/Deniks/BMI-Calculator-GUI'],
     elaboration: null,
   },
@@ -91,5 +96,20 @@ export const projectsData = [
     image: valhallaCLIImg,
     links: ['https://github.com/Deniks/valhalla-cli'],
     elaboration: null,
+  },
+];
+
+export const detailedProjectData = [
+  {
+    name: 'Real Estate',
+    role: '',
+    difficulties: '',
+    solution: '',
+  },
+  {
+    name: 'Landing',
+    role: '',
+    difficulties: '',
+    solution: '',
   },
 ];
