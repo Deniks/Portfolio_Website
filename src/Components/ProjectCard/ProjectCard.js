@@ -78,7 +78,10 @@ export function ProjectCard({
             pad="small"
             gap="medium"
             direction="row"
-            style={{ flexWrap: 'wrap', flexBasis: '60%' }}
+            style={{
+              flexWrap: 'wrap',
+              flexBasis: elaboration ? '60%' : '100%',
+            }}
           >
             {stack.map((icon, i) => (
               <Icon key={i} src={icon} />
