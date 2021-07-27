@@ -12,7 +12,14 @@ import ImageLoader from '../ImageLoader';
 import Image from './Image';
 // const Image = lazy(() => import('./Image'));
 
-export function ProjectCard({ title, image, description, stack, links, id }) {
+export function ProjectCard({
+  title,
+  image,
+  description,
+  stack,
+  links,
+  elaboration,
+}) {
   const viewportSize = useContext(ResponsiveContext);
   const [cardIsHovered, setHover] = useState(false);
 
@@ -77,17 +84,19 @@ export function ProjectCard({ title, image, description, stack, links, id }) {
               <Icon key={i} src={icon} />
             ))}
           </Box>
-          <Box pad="small" justify="end">
-            <Button
-              style={{
-                padding: '7px 10px',
-                borderRadius: '4px',
-                border: '2px solid #fff',
-              }}
-            >
-              Read More
-            </Button>
-          </Box>
+          {elaboration && (
+            <Box pad="small" justify="end">
+              <Button
+                style={{
+                  padding: '7px 10px',
+                  borderRadius: '4px',
+                  border: '2px solid #fff',
+                }}
+              >
+                Read More
+              </Button>
+            </Box>
+          )}
         </Box>
       </Grid>
     </StyledCard>

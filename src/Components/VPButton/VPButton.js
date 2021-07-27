@@ -4,7 +4,7 @@ import { Box } from 'grommet';
 
 import { StyledButton } from './StyledButton';
 
-import { useHover, useGesture } from '@use-gesture/react';
+import { useGesture } from '@use-gesture/react';
 import { useStore } from './store';
 export function VPButton(props) {
   //const [isHovered, setHover] = useState(false);

@@ -43,7 +43,7 @@ export function EpicBackground() {
         <fog attach="fog" args={['white', 50, 190]} />
         <pointLight
           position={[10, 100, 100]}
-          intensity={mainButtonIsHovered || isMobile ? 7.5 : 1}
+          intensity={mainButtonIsHovered ? 7.5 : 1}
           color={mainButtonIsHovered ? mainButtonColor : 'white'}
         />
         {isHomePage ? (

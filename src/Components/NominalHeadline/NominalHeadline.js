@@ -35,7 +35,7 @@ export default function NominalHeadline() {
           <Link to={PDF} target="_blank">
             <DebitAnimation delay={1900}>
               <VPButton
-                color="yellow"
+                color="#FFD64D"
                 borderColor="#F4CC70"
                 text="Open Resume"
               />

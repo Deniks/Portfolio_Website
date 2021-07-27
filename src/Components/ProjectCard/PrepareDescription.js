@@ -1,8 +1,5 @@
-import { Box, Button } from 'grommet';
-import React, { useState } from 'react';
-
 export function PrepareDescription(text) {
-  const limit = 300;
+  const limit = 500;
   return text.length <= limit ? text : text.substring(0, limit) + '...';
 }
 

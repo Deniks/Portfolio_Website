@@ -27,18 +27,20 @@ export function ProjectCatalog() {
   return (
     <Grid rows={rows} columns={columns} gap="small" justify="center">
       <AnimateCatalog>
-        {projectsData.map(({ name, image, description, stack, links }, i) => (
-          <Suspense key={i} fallback={<CardSkelton />}>
-            <ProjectCard
-              title={name}
-              image={image}
-              description={description}
-              stack={stack}
-              links={links}
-              id={i}
-            />
-          </Suspense>
-        ))}
+        {projectsData.map(
+          ({ name, image, description, stack, links, elaboration }, i) => (
+            <Suspense key={i} fallback={<CardSkelton />}>
+              <ProjectCard
+                title={name}
+                image={image}
+                description={description}
+                stack={stack}
+                links={links}
+                elaboration={elaboration}
+              />
+            </Suspense>
+          )
+        )}
       </AnimateCatalog>
     </Grid>
   );
