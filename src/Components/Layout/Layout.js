@@ -7,6 +7,8 @@ import { Box, Grommet, ResponsiveContext, Grid } from 'grommet';
 import Header from '../Header';
 import Footer from '../Footer';
 
+import EpicBackground from '../EpicBackground';
+
 const theme = {
   global: {
     colors: {
@@ -19,8 +21,7 @@ const theme = {
     },
   },
 };
-
-const EpicBackground = lazy(() => import('../EpicBackground'));
+// const EpicBackground = lazy(() => import('../EpicBackground'));
 
 export const Layout = ({ children }) => {
   return (

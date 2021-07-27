@@ -6,10 +6,12 @@ import { Route, Switch, useLocation, Router } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import ErrorPage from './Pages/ErrorPage';
 
-import Layout from './Components/Layout';
 import PageLoader from './Components/PageLoader';
 
 import ProjectsPage from './Pages/ProjectsPage';
+
+// import Layout from './Components/Layout';
+const Layout = lazy(() => import('./Components/Layout'));
 
 const App = () => {
   return (

@@ -7,7 +7,7 @@ import { StyledCard } from './Styles/StyledCard';
 import { StyledTitle } from './Styles/StyledTitle';
 import { PrepareDescription } from './PrepareDescription';
 import Icon from '../Icon';
-import ImageLoader from '../ImageLoader';
+// import ImageLoader from '../ImageLoader';
 //import './styles.css';
 import Image from './Image';
 // const Image = lazy(() => import('./Image'));
@@ -43,7 +43,7 @@ export function ProjectCard({
               gridArea="image"
               style={{ margin: 'auto 0', overflow: 'hidden' }}
             >
-              <Image src={image} alt="ge" zoom={cardIsHovered} />
+              <Image src={image} alt="image" zoom={cardIsHovered} />
             </Box>
           ) : null}
         </Box>
