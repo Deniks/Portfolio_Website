@@ -5,7 +5,6 @@ import Particles from './Particles';
 import { Box } from 'grommet';
 // import { useControls } from 'leva';
 import { Flex } from '@react-three/flex';
-import './styles.css';
 
 import Effects from './Effects';
 import OpenTagModel from '../FBX/Model3/openTag';

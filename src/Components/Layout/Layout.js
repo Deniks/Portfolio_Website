@@ -1,7 +1,7 @@
 import React, { lazy } from 'react';
 
 // UI
-import { Box, Grommet, ResponsiveContext, Grid } from 'grommet';
+import { Box, ResponsiveContext, Grid } from 'grommet';
 
 // Components
 import Header from '../Header';
@@ -9,54 +9,38 @@ import Footer from '../Footer';
 
 import EpicBackground from '../EpicBackground';
 
-const theme = {
-  global: {
-    colors: {
-      brand: '#228BE6',
-    },
-    font: {
-      family: 'Roboto',
-      size: '14px',
-      height: '20px',
-    },
-  },
-};
 // const EpicBackground = lazy(() => import('../EpicBackground'));
 
 export const Layout = ({ children }) => {
   return (
-    <Grommet theme={theme} full>
-      <ResponsiveContext.Consumer>
-        {(size) => (
-          <Grid
-            style={{ minHeight: '100vh' }}
-            rows={['10vh', 'auto', '10vh']}
-            columns={
-              size === 'small'
-                ? ['5vw', 'auto', '5vw']
-                : ['10vw', 'auto', '10vw']
-            }
-            gap="small"
-            areas={[
-              { name: 'header', start: [0, 0], end: [2, 0] },
-              { name: 'main', start: [1, 1], end: [1, 1] },
-              { name: 'footer', start: [1, 2], end: [1, 2] },
-            ]}
-          >
-            <Box gridArea="header">
-              <Header />
-            </Box>
-            <Box gridArea="main">{children}</Box>
+    <ResponsiveContext.Consumer>
+      {(size) => (
+        <Grid
+          style={{ minHeight: '100vh' }}
+          rows={['10vh', 'auto', '10vh']}
+          columns={
+            size === 'small' ? ['5vw', 'auto', '5vw'] : ['10vw', 'auto', '10vw']
+          }
+          gap="small"
+          areas={[
+            { name: 'header', start: [0, 0], end: [2, 0] },
+            { name: 'main', start: [1, 1], end: [1, 1] },
+            { name: 'footer', start: [1, 2], end: [1, 2] },
+          ]}
+        >
+          <Box gridArea="header">
+            <Header />
+          </Box>
+          <Box gridArea="main">{children}</Box>
 
-            <Box gridArea="footer">
-              <Footer />
-            </Box>
-            <Box fill style={{ position: 'absolute', zIndex: -1 }}>
-              <EpicBackground />
-            </Box>
-          </Grid>
-        )}
-      </ResponsiveContext.Consumer>
-    </Grommet>
+          <Box gridArea="footer">
+            <Footer />
+          </Box>
+          <Box fill style={{ position: 'absolute', zIndex: -1 }}>
+            <EpicBackground />
+          </Box>
+        </Grid>
+      )}
+    </ResponsiveContext.Consumer>
   );
 };
