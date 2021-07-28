@@ -10,6 +10,7 @@ import ErrorPage from './Pages/ErrorPage';
 import PageLoader from './Components/PageLoader';
 
 import ProjectsPage from './Pages/ProjectsPage';
+import DetailedProjectPage from './Pages/DetailedProjectPage';
 
 // import Layout from './Components/Layout';
 const Layout = lazy(() => import('./Components/Layout'));
@@ -34,7 +35,8 @@ const App = () => {
         <Layout>
           <Switch>
             <Route path="/" component={HomePage} exact />
-            <Route path="/projects" component={ProjectsPage} />
+            <Route path="/projects" exact component={ProjectsPage} />
+            <Route path="/projects/:title" component={DetailedProjectPage} />
             <Route component={ErrorPage} />
           </Switch>
         </Layout>

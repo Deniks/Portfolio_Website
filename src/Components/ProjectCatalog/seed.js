@@ -39,7 +39,7 @@ export const projectsData = [
       'https://github.com/Deniks/Apartment-Booking-App',
       'https://alternative-choice-apartments.netlify.app/',
     ],
-    elaboration: null,
+    elaboration: true,
   },
   {
     name: 'Landing',
@@ -95,16 +95,29 @@ export const projectsData = [
     stack: [Nodejs, MongoDB, Typescript],
     image: valhallaCLIImg,
     links: ['https://github.com/Deniks/valhalla-cli'],
-    elaboration: null,
+    elaboration: true,
   },
 ];
 
 export const detailedProjectData = [
   {
     name: 'Real Estate',
-    role: '',
-    difficulties: '',
-    solution: '',
+    features: [
+      'Responsive/Adaptive Design',
+      'Material UI framework',
+      'Efficent appartment fetching with GraphQL',
+      'MongoDB for scalability',
+      'Apollo as middleman between react client and express server',
+      'Animations with real physics using React Spring',
+      'Flexible apartment filter',
+      'Synchronized with AirBNB and Booking calender which allows user to see available dates',
+      'State management with React hooks and context',
+    ],
+    role: 'Initial goal was to develop a web app that includes contact form, apartment listing page and great overview of apatments. And my role included the developement of front-end using react and back-end with express. Not to mention, as project was somewhat large, every feature needed to be presented and reviewed to stakeholder (as per SCRUM).',
+    difficulties:
+      'The most challenging in the project was to implement great apartment overview as this required not only advanced software engineering skills but also designing. Even with Material UI provided utilities and design solutions I couldn’t think of some way to combine apartment location, description, features and other stats in merely one of 3X3 cards. Then come technology implementations on client-side such as GraphQL and Apollo for which i did not have previous experience and which cause a bit more attention investment for code, but thanks to decent documentation I did not stumble on this task.  As far as server-side is concerned, Typescript required me to dig more in order to find corresponding types for each module which took some time but not drastically.',
+    solution:
+      'I developed full-stack React Express application with loads of UX features according to client requirements. However, in my opinion, the app in perspective can scale even more and current code of the app can become redundant and there were not performed any tests. For this reason there could be done additional developement to refactor the code base. But in the end my solution works and is very much functional!',
   },
   {
     name: 'Landing',

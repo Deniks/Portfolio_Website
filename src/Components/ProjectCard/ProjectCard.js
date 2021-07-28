@@ -10,6 +10,7 @@ import Icon from '../Icon';
 // import ImageLoader from '../ImageLoader';
 //import './styles.css';
 import Image from './Image';
+import { Link } from 'react-router-dom';
 // const Image = lazy(() => import('./Image'));
 
 export function ProjectCard({
@@ -24,7 +25,6 @@ export function ProjectCard({
   const [cardIsHovered, setHover] = useState(false);
 
   const bind = useHover(({ active }) => setHover(active));
-
   return stack ? (
     <StyledCard size={viewportSize} {...bind()}>
       <Grid
@@ -54,7 +54,7 @@ export function ProjectCard({
           </Box>
           <Box gridArea="description">{PrepareDescription(description)}</Box>
 
-          <Box gridArea="links">
+          <Box gridArea="links" style={{ marginTop: 'auto' }}>
             {links.map((link, i) => (
               <Box key={i}>
                 <a
@@ -89,15 +89,20 @@ export function ProjectCard({
           </Box>
           {elaboration && (
             <Box pad="small" justify="end">
-              <Button
-                style={{
-                  padding: '7px 10px',
-                  borderRadius: '4px',
-                  border: '2px solid #fff',
-                }}
+              <Link
+                to={`/projects/${title}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                Read More
-              </Button>
+                <Button
+                  style={{
+                    padding: '7px 10px',
+                    borderRadius: '4px',
+                    border: '2px solid #fff',
+                  }}
+                >
+                  Read More
+                </Button>
+              </Link>
             </Box>
           )}
         </Box>
