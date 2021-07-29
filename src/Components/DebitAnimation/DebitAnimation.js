@@ -7,9 +7,12 @@ export function DebitAnimation({
   direction = 'y',
   delay = 0,
   children,
+  continuous = false,
 }) {
   const [isPageEntered, setPageEntered] = useState(false);
   const [isPageLeft, setPageLeft] = useState(false);
+
+  const [loop, setLoop] = useState(true);
 
   const xTransition = {
     opacity: isPageLeft || !trigger ? 0 : isPageEntered ? 1 : 0,
@@ -19,10 +22,11 @@ export function DebitAnimation({
   };
 
   const yTransition = {
-    opacity: isPageLeft || !trigger ? 0 : isPageEntered ? 1 : 0,
-    translateY: isPageEntered && trigger ? '0px' : '50px',
+    opacity: loop ? (trigger ? 1 : 0) : 1,
+    translateY: loop ? (trigger ? '0px' : '50px') : '0px',
     delay,
     config: config.molasses,
+    onStart: () => !continuous && setLoop(false),
   };
   const style = useSpring(direction === 'y' ? yTransition : xTransition);
 

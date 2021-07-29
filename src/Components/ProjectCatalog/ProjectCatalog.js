@@ -1,11 +1,10 @@
-import React, { useState, useContext, Suspense, lazy } from 'react';
+import React, { useContext, Suspense, lazy } from 'react';
 
 import { Grid, ResponsiveContext } from 'grommet';
 
 import { projectsData } from './seed';
 import { AnimateCatalog } from './AnimateCatalog';
 import { CardSkelton } from '../ProjectCard/CardSkelton';
-
 const ProjectCard = lazy(() => import('../ProjectCard'));
 
 export function ProjectCatalog() {
@@ -26,22 +25,20 @@ export function ProjectCatalog() {
 
   return (
     <Grid rows={rows} columns={columns} gap="small" justify="center">
-      <AnimateCatalog>
-        {projectsData.map(
-          ({ name, image, description, stack, links, elaboration }, i) => (
-            <Suspense key={i} fallback={<CardSkelton />}>
-              <ProjectCard
-                title={name}
-                image={image}
-                description={description}
-                stack={stack}
-                links={links}
-                elaboration={elaboration}
-              />
-            </Suspense>
-          )
-        )}
-      </AnimateCatalog>
+      {projectsData.map(
+        ({ name, image, description, stack, links, elaboration }, i) => (
+          <Suspense key={i} fallback={<CardSkelton />}>
+            <ProjectCard
+              title={name}
+              image={image}
+              description={description}
+              stack={stack}
+              links={links}
+              elaboration={elaboration}
+            />
+          </Suspense>
+        )
+      )}
     </Grid>
   );
 }
