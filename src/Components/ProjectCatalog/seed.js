@@ -95,7 +95,7 @@ export const projectsData = [
     stack: [Nodejs, MongoDB, Typescript],
     image: valhallaCLIImg,
     links: ['https://github.com/Deniks/valhalla-cli'],
-    elaboration: true,
+    elaboration: false,
   },
 ];
 
