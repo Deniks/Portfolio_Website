@@ -1,6 +1,12 @@
 import React, { useState, useContext, Suspense, lazy } from 'react';
 
-import { Box, Grid, Button, ResponsiveContext, Tip } from 'grommet';
+import {
+  Box,
+  Grid,
+  Button,
+  ResponsiveContext,
+  Image as GrommetImage,
+} from 'grommet';
 
 import { useHover } from '@use-gesture/react';
 import { StyledCard } from './Styles/StyledCard';
