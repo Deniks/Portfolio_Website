@@ -46,17 +46,3 @@ body {
   cursor: url('https://raw.githubusercontent.com/chenglou/react-motion/master/demos/demo8-draggable-list/cursor.png') 39 39, auto;
 */
 }
-
-/* Used only for Projects Page */
-img {
-  bottom: 0;
-  height: auto;
-  left: 0;
-  margin: auto;
-  max-height: 100%;
-  max-width: 100%;
-  position: relative;
-  right: 0;
-  top: 0;
-  width: auto;
-}
