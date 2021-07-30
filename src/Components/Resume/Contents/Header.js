@@ -50,6 +50,19 @@ export default () => (
       <Link href="mailto:deniss.rezanovics@gmail.com" style={styles.link}>
         deniss.rezanovics@gmail.com
       </Link>
+      <Link href="tel: +371 27739868" target="_blank" style={styles.link}>
+        +371 27739868
+      </Link>
+      <Link
+        href="https://www.denissrezanovics.com/"
+        target="_blank"
+        style={styles.link}
+      >
+        denissrezanovics.com
+      </Link>
+      <Link href="github.com/Deniks" target="_blank" style={styles.link}>
+        https://github.com/Deniks
+      </Link>
     </View>
   </View>
 );

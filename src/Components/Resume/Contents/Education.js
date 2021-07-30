@@ -5,7 +5,12 @@ import Title from './Title';
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 10,
+    paddingTop: 30,
+    paddingLeft: 15,
+    '@media max-width: 400': {
+      paddingTop: 10,
+      paddingLeft: 0,
+    },
   },
   school: {
     fontFamily: 'Lato Bold',

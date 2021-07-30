@@ -47,7 +47,17 @@ const Skills = () => (
     />
     <SkillEntry
       name="Back-end"
-      skills={['Node', 'Express.js', 'MongoDB', 'TypeScript', 'Apollo']}
+      skills={[
+        'Node',
+        'Express.js',
+        'MongoDB',
+        'TypeScript',
+        'Apollo',
+        'RESTful API',
+        'SSR',
+        'SPA',
+        'Webpack',
+      ]}
     />
     <SkillEntry
       name="Project Managment"
@@ -64,6 +74,8 @@ const Skills = () => (
         'OOP',
         'Functional Programming',
         'C#',
+        'WPF',
+        'Unity',
         'Python',
         'Django',
         'Blender',

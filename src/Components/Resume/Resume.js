@@ -13,6 +13,8 @@ import Header from './Contents/Header';
 import Skills from './Contents/Skills';
 import Education from './Contents/Education';
 import Experience from './Contents/Experience';
+import Projects from './Contents/Projects';
+import About from './Contents/About';
 
 const styles = StyleSheet.create({
   page: {
@@ -33,6 +35,16 @@ const styles = StyleSheet.create({
     width: 170,
     paddingTop: 30,
     paddingRight: 15,
+    '@media max-width: 400': {
+      width: '100%',
+      paddingRight: 0,
+    },
+    '@media orientation: landscape': {
+      width: 200,
+    },
+  },
+  rightColumn: {
+    flexDirection: 'column',
     '@media max-width: 400': {
       width: '100%',
       paddingRight: 0,
@@ -81,14 +93,15 @@ const Resume = (props) => (
     <Header />
     <View style={styles.container}>
       <View style={styles.leftColumn}>
-        <Image
-          src="https://react-pdf.org/static/images/luke.jpg"
-          style={styles.image}
-        />
-        <Education />
+        <Image src="/logo.png" style={styles.image} />
         <Skills />
       </View>
-      <Experience />
+      <View style={styles.rightColumn}>
+        <About />
+        <Projects />
+        <Experience />
+        <Education />
+      </View>
     </View>
     <Text style={styles.footer}>This IS the candidate you are looking for</Text>
   </Page>
