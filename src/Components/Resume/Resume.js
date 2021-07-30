@@ -15,6 +15,7 @@ import Education from './Contents/Education';
 import Experience from './Contents/Experience';
 import Projects from './Contents/Projects';
 import About from './Contents/About';
+import Certificates from './Contents/Certificates';
 
 const styles = StyleSheet.create({
   page: {
@@ -95,6 +96,7 @@ const Resume = (props) => (
       <View style={styles.leftColumn}>
         <Image src="/logo.png" style={styles.image} />
         <Skills />
+        <Certificates />
       </View>
       <View style={styles.rightColumn}>
         <About />

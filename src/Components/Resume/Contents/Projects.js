@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image } from '@react-pdf/renderer';
+import { Text, View, StyleSheet, Image, Link } from '@react-pdf/renderer';
 
 import Title from './Title';
 import List, { Item } from './List';
 
 import { projectsData } from '../../ProjectCatalog/seed';
+import { Seperator } from '../Other/Seperator';
 
 const styles = StyleSheet.create({
   container: {
@@ -53,6 +54,11 @@ const styles = StyleSheet.create({
     width: '200px',
     borderRadius: '3px',
   },
+  link: {
+    fontFamily: 'Lato',
+    fontSize: 10,
+    color: 'black',
+  },
 });
 
 const ProjectEntry = ({ name, description, image, links }) => {
@@ -72,13 +78,12 @@ const ProjectEntry = ({ name, description, image, links }) => {
         </View>
       </View>
 
-      <List>
-        {links.map((link, i) => (
-          <Item key={i} style={styles.detailContainer}>
-            {link}
-          </Item>
-        ))}
-      </List>
+      {links.map((link, i) => (
+        <Link key={i} href={link} target="_blank" style={styles.link}>
+          <Text>{link}</Text>
+        </Link>
+      ))}
+      <Seperator />
     </View>
   );
 };
