@@ -11,7 +11,7 @@ import PageLoader from './Components/PageLoader';
 
 import ProjectsPage from './Pages/ProjectsPage';
 import DetailedProjectPage from './Pages/DetailedProjectPage';
-import { ResumePage } from './Pages/ResumePage/ResumePage';
+import ResumePage from './Pages/ResumePage';
 
 // import Layout from './Components/Layout';
 const Layout = lazy(() => import('./Components/Layout'));

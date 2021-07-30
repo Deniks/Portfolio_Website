@@ -15,15 +15,15 @@ export function DebitAnimation({
   const [loop, setLoop] = useState(true);
 
   const xTransition = {
-    opacity: isPageLeft || !trigger ? 0 : isPageEntered ? 1 : 0,
-    translateX: isPageEntered && trigger ? '0px' : '-50px',
+    opacity: loop ? (trigger && isPageEntered ? 1 : 0) : 1,
+    translateX: loop ? (trigger && isPageEntered ? '0px' : '-50px') : '0px',
     delay,
-    config: config.stiff,
+    config: config.molasses,
   };
 
   const yTransition = {
-    opacity: loop ? (trigger ? 1 : 0) : 1,
-    translateY: loop ? (trigger ? '0px' : '50px') : '0px',
+    opacity: loop ? (trigger && isPageEntered ? 1 : 0) : 1,
+    translateY: loop ? (trigger && isPageEntered ? '0px' : '50px') : '0px',
     delay,
     config: config.molasses,
     onStart: () => !continuous && setLoop(false),

@@ -8,7 +8,7 @@ import DebitAnimation from '../DebitAnimation';
 export default function NominalHeadline() {
   return (
     <Box align="center" fill>
-      <DebitAnimation delay={350}>
+      <DebitAnimation delay={450}>
         <Heading margin="none" style={{ fontWeight: 'bold' }}>
           Hi, I'm Deniss
         </Heading>

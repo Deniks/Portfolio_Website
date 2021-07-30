@@ -27,23 +27,19 @@ export function EpicBackground() {
     pointLightX,
     pointLightY,
     pointLightZ,
-    tagRotation,
     lightIntensityManual,
     cameraX,
     cameraY,
     cameraZ,
-    cameraYRotation,
     fov,
   } = useControls({
     pointLightX: 10,
     pointLightY: 100,
     pointLightZ: 100,
     lightIntensityManual: 1,
-    tagRotation: 0,
     cameraX: 0,
     cameraY: 1,
     cameraZ: 40,
-    cameraYRotation: 0,
     fov: 40,
   });
   const mouse = useRef([0, 0]);
@@ -51,6 +47,7 @@ export function EpicBackground() {
   const [lightIntensity, setLightIntensity] = useState(1000);
   const [lightColor, setLightColor] = useState();
   const [pointLightPosition, setPointLightPosition] = useState([]);
+  const [sceneCameraPosition, setSceneCameraPosition] = useState([0, 1, 40]);
   const { pathname } = useLocation();
   const isHomePage = pathname === '/';
   const isPageUndefined = useRouteMatch('/page-not-found');
@@ -70,6 +67,8 @@ export function EpicBackground() {
     if (isPageUndefined) {
       setPointLightPosition([45, 70, 55]);
       setLightIntensity(2.5);
+    } else {
+      setPointLightPosition([10, 100, 100]);
     }
   });
   return (
@@ -84,15 +83,14 @@ export function EpicBackground() {
       >
         <fog attach="fog" args={['white', 50, 190]} />
         <pointLight
-          position={[pointLightX, pointLightY, pointLightZ]}
+          position={pointLightPosition}
           intensity={lightIntensity}
           color={lightColor}
         />
         <PerspectiveCamera
           fov={fov}
           makeDefault
-          rotation={[0, cameraYRotation, 0]}
-          position={[cameraX, cameraY, cameraZ]}
+          position={sceneCameraPosition}
           ref={sceneCamera}
         />
         <OrbitControls ref={OrbitControlsRef} camera={sceneCamera.current} />
