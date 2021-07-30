@@ -14,9 +14,9 @@ import EpicBackground from '../EpicBackground';
 // const EpicBackground = lazy(() => import('../EpicBackground'));
 
 export const Layout = ({ children }) => {
-  let isResumePage = useRouteMatch('/resume');
+  let isBlankPageRequired = useRouteMatch('/resume');
 
-  return isResumePage ? (
+  return isBlankPageRequired ? (
     children
   ) : (
     <ResponsiveContext.Consumer>

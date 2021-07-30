@@ -30,7 +30,7 @@ export function Effects() {
     <effectComposer ref={composer} args={[gl]}>
       <renderPass attachArray="passes" scene={scene} camera={camera} />
       {<waterPass attachArray="passes" factor={0.15} />}
-      <unrealBloomPass attachArray="passes" args={[aspect, 2, 1, 0]} />
+      <unrealBloomPass attachArray="passes" args={[aspect, 0.1, 2, 0]} />
     </effectComposer>
   );
 }
