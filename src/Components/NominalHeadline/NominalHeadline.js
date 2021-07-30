@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Box, Heading } from 'grommet';
 import VPButton from '../VPButton';
 import DebitAnimation from '../DebitAnimation';
-import PDF from '../../Assets/DenissRezanovicsCV.pdf';
 export default function NominalHeadline() {
   return (
     <Box align="center" fill>
@@ -32,7 +31,7 @@ export default function NominalHeadline() {
         </Box>
 
         <Box>
-          <Link to={PDF} target="_blank">
+          <Link to="/resume" target="_blank" rel="noopener noreferrer">
             <DebitAnimation delay={1900}>
               <VPButton
                 color="#FFD64D"

@@ -1,5 +1,7 @@
 import React, { lazy } from 'react';
 
+import { useRouteMatch } from 'react-router-dom';
+
 // UI
 import { Box, ResponsiveContext, Grid } from 'grommet';
 
@@ -12,7 +14,11 @@ import EpicBackground from '../EpicBackground';
 // const EpicBackground = lazy(() => import('../EpicBackground'));
 
 export const Layout = ({ children }) => {
-  return (
+  let isResumePage = useRouteMatch('/resume');
+
+  return isResumePage ? (
+    children
+  ) : (
     <ResponsiveContext.Consumer>
       {(size) => (
         <Grid

@@ -11,6 +11,7 @@ import PageLoader from './Components/PageLoader';
 
 import ProjectsPage from './Pages/ProjectsPage';
 import DetailedProjectPage from './Pages/DetailedProjectPage';
+import { ResumePage } from './Pages/ResumePage/ResumePage';
 
 // import Layout from './Components/Layout';
 const Layout = lazy(() => import('./Components/Layout'));
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/" component={HomePage} exact />
             <Route path="/projects" exact component={ProjectsPage} />
             <Route path="/projects/:title" component={DetailedProjectPage} />
+            <Route path="/resume" exact component={ResumePage} />
             <Route component={ErrorPage} />
           </Switch>
         </Layout>
