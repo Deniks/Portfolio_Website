@@ -2,9 +2,8 @@ import React, { useContext, Suspense, lazy } from 'react';
 
 import { Grid, ResponsiveContext } from 'grommet';
 
-import { projectsData } from './seed';
-import { AnimateCatalog } from './AnimateCatalog';
-import { CardSkelton } from '../ProjectCard/CardSkelton';
+import { projectsData } from '../../Global/seed';
+import { CardSkelton } from '../ProjectCard/Contents/CardSkelton';
 const ProjectCard = lazy(() => import('../ProjectCard'));
 
 export function ProjectCatalog() {

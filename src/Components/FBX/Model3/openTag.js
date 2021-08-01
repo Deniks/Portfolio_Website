@@ -1,4 +1,4 @@
-import { Box, Flex } from '@react-three/flex';
+import { Box } from '@react-three/flex';
 import React from 'react';
 
 import LeftArrow from './leftArrow';

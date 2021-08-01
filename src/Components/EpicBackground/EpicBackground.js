@@ -13,7 +13,7 @@ import { useStore } from '../VPButton/store';
 
 import { useLocation, useRouteMatch } from 'react-router-dom';
 import Robot404 from '../FBX/Robot404';
-import { useControls } from 'leva';
+// import { useControls } from 'leva';
 import {
   PerspectiveCamera,
   CameraShake,
@@ -23,25 +23,25 @@ export function EpicBackground() {
   const mainButtonIsHovered = useStore((state) => state.isHovered);
   const mainButtonColor = useStore((state) => state.buttonColor);
 
-  const {
-    pointLightX,
-    pointLightY,
-    pointLightZ,
-    lightIntensityManual,
-    cameraX,
-    cameraY,
-    cameraZ,
-    fov,
-  } = useControls({
-    pointLightX: 10,
-    pointLightY: 100,
-    pointLightZ: 100,
-    lightIntensityManual: 1,
-    cameraX: 0,
-    cameraY: 1,
-    cameraZ: 40,
-    fov: 40,
-  });
+  // const {
+  //   pointLightX,
+  //   pointLightY,
+  //   pointLightZ,
+  //   lightIntensityManual,
+  //   cameraX,
+  //   cameraY,
+  //   cameraZ,
+  //   fov,
+  // } = useControls({
+  //   pointLightX: 10,
+  //   pointLightY: 100,
+  //   pointLightZ: 100,
+  //   lightIntensityManual: 1,
+  //   cameraX: 0,
+  //   cameraY: 1,
+  //   cameraZ: 40,
+  //   fov: 40,
+  // });
   const mouse = useRef([0, 0]);
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const [lightIntensity, setLightIntensity] = useState(1000);
@@ -70,7 +70,7 @@ export function EpicBackground() {
     } else {
       setPointLightPosition([10, 100, 100]);
     }
-  });
+  }, [mainButtonIsHovered, isHomePage]);
   return (
     <Box fill>
       <Canvas
@@ -88,7 +88,7 @@ export function EpicBackground() {
           color={lightColor}
         />
         <PerspectiveCamera
-          fov={fov}
+          fov={40}
           makeDefault
           position={sceneCameraPosition}
           ref={sceneCamera}

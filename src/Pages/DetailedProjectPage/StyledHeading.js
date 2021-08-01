@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useOnScreen } from '../../Hooks/useOnScreen';
-import { Box, Heading as GrommetHeading, Text } from 'grommet';
+import { Heading as GrommetHeading } from 'grommet';
 import DebitAnimation from '../../Components/DebitAnimation';
 const StyledHeading = styled(GrommetHeading)`
   text-align: ${({ textAlign }) => textAlign || 'left'};

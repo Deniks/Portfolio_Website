@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box } from 'grommet';
 
-import { StyledButton } from './StyledButton';
+import { StyledButton } from './Styles/StyledButton';
 
 import { useGesture } from '@use-gesture/react';
 import { useStore } from './store';

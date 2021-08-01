@@ -36,7 +36,7 @@ export default () => (
         WPF). Each field contributed to my overall knowlege of programming and
         project structuring that definetly impacted my Web developement projects
         as well. More, I am familiar with majority of projects management
-        teqnuickes like Scrum, RAD or Agile. That said, I hope to deliver the
+        practices like Scrum, RAD or Kanban. That said, I hope to deliver the
         utmost quality product if you choose to work with me.
       </Text>
     </View>

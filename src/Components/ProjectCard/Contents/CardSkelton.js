@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
-import { StyledCard } from './Styles/StyledCard';
-import { StyledTitle } from './Styles/StyledTitle';
+import { StyledCard } from '../Styles/StyledCard';
+import { StyledTitle } from '../Styles/StyledTitle';
 import Skelton, { SkeletonTheme } from 'react-loading-skeleton';
 
 export function CardSkelton() {

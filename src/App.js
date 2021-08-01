@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 
-import { Route, Switch, useLocation, Router, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { Grommet } from 'grommet';
 // Pages
@@ -39,7 +39,8 @@ const App = () => {
             <Route path="/projects" exact component={ProjectsPage} />
             <Route path="/projects/:title" component={DetailedProjectPage} />
             <Route path="/resume" exact component={ResumePage} />
-            <Route component={ErrorPage}>
+            <Route path="/page-not-found" component={ErrorPage} />
+            <Route path="*">
               <Redirect to="/page-not-found" />
             </Route>
           </Switch>

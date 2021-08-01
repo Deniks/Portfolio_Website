@@ -2,10 +2,7 @@ import React from 'react';
 
 import { Text, Box } from 'grommet';
 import { StyledLink } from './Styles/StyledLink';
-const linkStyle = {
-  color: 'inherit',
-  textDecoration: 'none',
-};
+
 export function Footer() {
   return (
     <Box align="center" justify="end" fill>

@@ -18,6 +18,8 @@
     "react-dat-gui": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-loading-skeleton": "^2.2.0",
+    "react-pdf": "^5.3.2",
+    "react-read-pdf": "^2.0.9",
     "react-router": "^5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "2.1.1",

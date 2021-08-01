@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import { Box, Image, Text } from 'grommet';
+import { Box, Text } from 'grommet';
 import { Heading } from './StyledHeading';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useParams,
-  useRouteMatch,
-} from 'react-router-dom';
-import img from '../../Assets/real-estate.png';
+import { useParams } from 'react-router-dom';
 
-import { detailedProjectData } from '../../Components/ProjectCatalog/seed';
+import { detailedProjectData } from '../../Global/seed';
 export const DetailedProjectPage = () => {
   let { title } = useParams();
   const [project, setProjects] = useState(null);

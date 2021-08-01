@@ -2,9 +2,8 @@ import React from 'react';
 import { Text, View, StyleSheet, Image, Link } from '@react-pdf/renderer';
 
 import Title from './Title';
-import List, { Item } from './List';
 
-import { projectsData } from '../../ProjectCatalog/seed';
+import { projectsData } from '../../../Global/seed';
 import { Seperator } from '../Other/Seperator';
 
 const styles = StyleSheet.create({

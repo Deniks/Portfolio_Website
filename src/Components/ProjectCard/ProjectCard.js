@@ -1,25 +1,19 @@
 import React, { useState, useContext, useRef, Suspense, lazy } from 'react';
 
-import {
-  Box,
-  Grid,
-  Button,
-  ResponsiveContext,
-  Image as GrommetImage,
-} from 'grommet';
+import { Box, Grid, Button, ResponsiveContext } from 'grommet';
 
 import { useHover } from '@use-gesture/react';
 import { StyledCard } from './Styles/StyledCard';
 import { StyledTitle } from './Styles/StyledTitle';
-import { PrepareDescription } from './PrepareDescription';
+import { PrepareDescription } from './Other/PrepareDescription';
 import Icon from '../Icon';
-// import ImageLoader from '../ImageLoader';
+import ImageLoader from '../ImageLoader';
 //import './styles.css';
-import Image from './Image';
+// import Image from './Contents/Image';
 import { Link } from 'react-router-dom';
 import DebitAnimation from '../DebitAnimation';
 import { useOnScreen } from '../../Hooks/useOnScreen';
-// const Image = lazy(() => import('./Image'));
+const Image = lazy(() => import('./Contents/Image'));
 
 export function ProjectCard({
   title,
@@ -55,7 +49,9 @@ export function ProjectCard({
                 gridArea="image"
                 style={{ margin: 'auto 0', overflow: 'hidden' }}
               >
-                <Image src={image} alt="image" zoom={cardIsHovered} />
+                <Suspense fallback={<ImageLoader />}>
+                  <Image src={image} alt="image" zoom={cardIsHovered} />
+                </Suspense>
               </Box>
             ) : null}
           </Box>

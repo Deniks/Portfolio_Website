@@ -7,6 +7,7 @@ import {
   Image,
   Document,
   StyleSheet,
+  Link,
 } from '@react-pdf/renderer';
 
 import Header from './Contents/Header';
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
   },
   image: {
     marginBottom: 10,
+    borderRadius: 2,
   },
   leftColumn: {
     flexDirection: 'column',
@@ -66,6 +68,10 @@ const styles = StyleSheet.create({
     '@media orientation: landscape': {
       marginTop: 10,
     },
+  },
+  link: {
+    color: 'tomato',
+    textDecoration: 'underline',
   },
 });
 
@@ -105,7 +111,18 @@ const Resume = (props) => (
         <Education />
       </View>
     </View>
-    <Text style={styles.footer}>This IS the candidate you are looking for</Text>
+    <View style={styles.footer}>
+      <Text>
+        Do check my{' '}
+        <Link
+          href="https://www.denissrezanovics.com/"
+          target="_blank"
+          style={styles.link}
+        >
+          Portfolio Website
+        </Link>
+      </Text>
+    </View>
   </Page>
 );
 

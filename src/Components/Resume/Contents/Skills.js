@@ -64,6 +64,10 @@ const Skills = () => (
       skills={['Agile', 'SCRUM', 'Kanban', 'Gantt Chart', 'Git']}
     />
     <SkillEntry
+      name="DevOps"
+      skills={['CI/CD', 'Docker', 'Kubernetes', 'Azure']}
+    />
+    <SkillEntry
       name="Other"
       skills={[
         'Unit Testing',

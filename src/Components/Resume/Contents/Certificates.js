@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Link, Image } from '@react-pdf/renderer';
+import { Text, View, StyleSheet, Link } from '@react-pdf/renderer';
 
 import Title from './Title';
 import { Seperator } from '../Other/Seperator';

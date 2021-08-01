@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Text, View, StyleSheet, Link, Image } from '@react-pdf/renderer';
+import { View } from '@react-pdf/renderer';
 
 export const Seperator = () => {
   return (

@@ -3,26 +3,26 @@
 // import hotBeansImg from '../../Assets/hot-beans.png';
 // import valhallaCLIImg from '../../Assets/valhalla-cli.png';
 
-import denixImg from '../../Assets/images/compressed/logo.png';
-import realEstateImg from '../../Assets/images/compressed/real-estate.png';
-import hotBeansImg from '../../Assets/images/compressed/hot-beans.png';
-import valhallaCLIImg from '../../Assets/images/compressed/valhalla-cli.png';
-import bmiCalculator from '../../Assets/images/compressed/bmi-calculator.png';
+// import denixImg from '../../Assets/images/compressed/logo.png';
+import realEstateImg from './../Assets/images/compressedX2/real-estate.png';
+import hotBeansImg from './../Assets/images/compressedX2/hot-beans.png';
+import valhallaCLIImg from './../Assets/images/compressed/valhalla-cli.png';
+import bmiCalculator from './../Assets/images/compressed/bmi-calculator.png';
 
-import GraphQl from '../../Assets/icons/graphql.svg';
-import MaterialUI from '../../Assets/icons/material-ui.svg';
-import Express from '../../Assets/icons/express.svg';
-import Typescript from '../../Assets/icons/typescript.svg';
-import Nodejs from '../../Assets/icons/nodejs.svg';
-import Css from '../../Assets/icons/css.svg';
-import Html from '../../Assets/icons/html.svg';
-import Reactjs from '../../Assets/icons/reactjs.svg';
-import Apollo from '../../Assets/icons/apollo.svg';
-import MongoDB from '../../Assets/icons/mongo.svg';
+import GraphQl from './../Assets/icons/graphql.svg';
+import MaterialUI from './../Assets/icons/material-ui.svg';
+import Express from './../Assets/icons/express.svg';
+import Typescript from './../Assets/icons/typescript.svg';
+import Nodejs from './../Assets/icons/nodejs.svg';
+import Css from './../Assets/icons/css.svg';
+import Html from './../Assets/icons/html.svg';
+import Reactjs from './../Assets/icons/reactjs.svg';
+import Apollo from './../Assets/icons/apollo.svg';
+import MongoDB from './../Assets/icons/mongo.svg';
 
 // import Django from '../../Assets/icons/django.svg';
 // import Python from '../../Assets/icons/python.svg';
-import CSharp from '../../Assets/icons/csharp.svg';
+import CSharp from './../Assets/icons/csharp.svg';
 // import Sass from '../../Assets/icons/sass.svg';
 // import Azure from '../../Assets/icons/azure.svg';
 
